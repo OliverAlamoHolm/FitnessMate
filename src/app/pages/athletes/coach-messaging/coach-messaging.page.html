@@ -1,0 +1,38 @@
+
+
+<ion-content class="ion-padding">
+  
+    <ion-back-button defaultHref="/tabs/my-coach" color="light">
+    </ion-back-button>
+
+    <ion-avatar class="avatar">
+      <img src="{{avatar}}">
+    </ion-avatar>
+    <div class="name">{{name}}</div>
+
+  <ion-grid>
+    <ion-row  *ngFor="let m of messages">
+      <ion-col  offset="3" size="9" *ngIf="m.transmitter == actualUID" class="message my-message">
+    
+        <span>{{m.message}}</span>
+        <div class="time" text-right><br>{{m.date}}</div>
+      </ion-col>
+      
+      <ion-col  size="9" *ngIf="m.transmitter != actualUID" class="message other-message">
+
+        <span>{{m.message}}</span>
+         <div class="time" text-right><br>{{m.date}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-textarea [(ngModel)]="messageText"></ion-textarea>
+    <ion-button color="dark" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

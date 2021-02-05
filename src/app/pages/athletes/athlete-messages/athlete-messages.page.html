@@ -1,0 +1,29 @@
+
+
+<ion-content>
+  <p *ngIf="myChats.length == 0" class="no-messages">
+    No se ha encontrado ningun mensaje.
+  </p>
+  <ion-list>
+    <ng-container *ngFor="let chat of myChats">
+      <ng-container *ngFor="let user of chat.users">
+        <ng-container *ngIf="user != actualUID">
+          <ng-container *ngFor="let cch of coaches">
+            <ng-container *ngIf="cch.uid == user">
+              <ion-item button router [routerLink]="['/chat', chat.id, cch.name + ' ' + cch.lastName, cch.avatar]" (click)="refresh()">
+                <ion-avatar ion-start>
+                  <img src="{{cch.avatar}}">
+                </ion-avatar>
+                <ion-label class="chatDetails">
+                  <h2><b> {{cch.name}} {{cch.lastName}}</b></h2>
+                  <b class="message">{{chat.messages[chat.messages.length-1].message}}</b>
+                    <b class="date">{{chat.messages[chat.messages.length-1].date}}</b>
+                </ion-label>
+              </ion-item>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+</ion-content>

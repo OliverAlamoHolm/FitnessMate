@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{day.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container>
+    
+
+    <ion-item>
+      <ion-label>Grupo Muscular</ion-label>
+      <ion-select interface="popover" placeholder="Selecciona" [(ngModel)]="categor" >
+        <ion-select-option value="Antebrazo">Antebrazo</ion-select-option>
+        <ion-select-option value="Biceps">Biceps</ion-select-option>
+        <ion-select-option value="Cuadriceps">Cuadriceps</ion-select-option>
+        <ion-select-option value="Espalda">Espalda</ion-select-option>
+        <ion-select-option value="Femoral">Femoral</ion-select-option>
+        <ion-select-option value="Gemelos">Gemelos</ion-select-option>
+        <ion-select-option value="Hombros">Hombros</ion-select-option>
+        <ion-select-option value="Lumbares">Lumbares</ion-select-option>
+        <ion-select-option value="Pecho">Pecho</ion-select-option>
+        <ion-select-option value="Triceps">Triceps</ion-select-option>
+        <ion-select-option value="Cardio">Cardio</ion-select-option>
+        <ion-select-option value="Cardio Estático">Cardio Estatico</ion-select-option>
+        <ion-select-option value="Multimusculares">Multimusculares</ion-select-option>
+        <ion-select-option value="Descanzo">Descanzo</ion-select-option>
+      </ion-select> 
+    </ion-item>
+
+    <ion-item *ngIf="categor !=''">
+      <ion-label>Ejercicio</ion-label>
+      <ion-select placeholder="Selecciona" interface="action-sheet" [(ngModel)]="exerciseName">
+        <ng-container *ngFor="let exe of exes">
+          <ng-container *ngIf="exe.category == categor">
+            <ion-select-option *ngFor="let x of exe.exercises">{{x.name}} 
+            </ion-select-option>
+          </ng-container>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+  </ng-container>
+  <br>
+  <ion-item>
+    <ion-label position="floating">Series</ion-label>
+    <ion-input type="number" [(ngModel)]="exerciseSeries"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Reps</ion-label>
+    <ion-input  type="number" [(ngModel)]="exerciseReps"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Notas</ion-label>
+    <ion-input  type="text" [(ngModel)]="note"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="addExercise()" expand="block">Añadir Ejercicio</ion-button>
+
+  <ng-container *ngIf="day.plan">
+    <h1>Preparando ejercicios</h1>
+    {{day.muscles}}
+      <ion-item *ngFor="let exercise of day.plan; let i = index">
+        {{exercise.name}} - {{exercise.series}} x {{exercise.reps}}
+        <ion-button (click)="deleteExercise(i)" color="danger" slot="end">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>      
+      </ion-item>
+    <ion-button (click)="deleteAll()" expand="block" color="danger">Borrar Todo</ion-button>
+  </ng-container>
+
+  <ion-button (click)="updatePlan()" expand="block">Finalizar</ion-button>
+
+</ion-content>

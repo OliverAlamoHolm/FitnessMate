@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>client-messaging</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngFor="let m of messages">
+    <ion-item *ngIf="m.transmitter == actualUID" class=transmitterItem>
+      <p>{{m.message}}</p>
+      <p class="date">{{m.date}}</p>
+    </ion-item>
+    <ion-item *ngIf="m.transmitter != actualUID" class="receiverItem">
+      <p>{{m.message}}</p>
+      <p class="date">{{m.date}}</p>
+    </ion-item>
+  </ng-container>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-textarea [(ngModel)]="messageText"></ion-textarea>
+    <ion-button color="success" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

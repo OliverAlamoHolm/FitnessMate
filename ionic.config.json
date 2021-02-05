@@ -1,0 +1,7 @@
+{
+  "name": "fitnessMate",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

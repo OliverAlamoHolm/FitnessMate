@@ -1,0 +1,26 @@
+
+<ion-content>
+  <ion-content class="ion-padding">
+    <img src="assets/logowhite.png">
+
+    
+      
+
+    
+    <p class="terms"><ion-checkbox [(ngModel)]="terms"></ion-checkbox> Acepto las <a routerLink="/terms">Políticas y términos de uso</a></p>
+    
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password" name="password" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Repita Contraseña</ion-label>
+      <ion-input [(ngModel)]="password2" type="password" name="password2" ></ion-input>
+    </ion-item>
+    <ion-button class="loginButton" (click)="onSubmitRegister()" expand="block" color="dark">Registrarse</ion-button>
+  </ion-content>
+</ion-content>

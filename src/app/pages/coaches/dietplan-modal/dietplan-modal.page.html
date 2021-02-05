@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>{{dietDay.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <h1>Elige la comida</h1>
+    <ion-item>
+      <ion-label>Comida</ion-label>
+      <ion-select placeholder="Selecciona" [(ngModel)]="meal">
+        <ion-select-option value="Comida 1">Comida 1</ion-select-option>
+        <ion-select-option value="Comida 2">Comida 2</ion-select-option>
+        <ion-select-option value="Comida 3">Comida 3</ion-select-option>
+        <ion-select-option value="Comida 4">Comida 4</ion-select-option>
+        <ion-select-option value="Comida 5">Comida 5</ion-select-option>
+        <ion-select-option value="Comida 6">Comida 6</ion-select-option>
+        <ion-select-option value="Comida 7">Comida 7</ion-select-option>
+        <ion-select-option value="Comida 8">Comida 8</ion-select-option>
+        <ion-select-option value="Comida 9">Comida 9</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hora de comida</ion-label>
+      <ion-datetime displayFormat="HH/mm" [(ngModel)]="mealDate"></ion-datetime>
+    </ion-item>
+
+    <h1>Elige los alimentos</h1>
+
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select placeholder="Selecciona" [(ngModel)]="category">
+        <ion-select-option value="Fruta y Frutos Secos">Fruta y Frutos Secos</ion-select-option>
+        <ion-select-option value="Lácteos y huevos">Lácteos y huevos</ion-select-option>
+        <ion-select-option value="Verdura y tubérculos">Verdura y tubérculos</ion-select-option>
+        <ion-select-option value="Carne Roja">Carne Roja</ion-select-option>
+        <ion-select-option value="Pescado y Marisco">Pescado y Marisco</ion-select-option>
+        <ion-select-option value="Pizza">Pizza</ion-select-option>
+        <ion-select-option value="Arroz, Pasta y Cereales">Arroz, Pasta y Cereales</ion-select-option>
+        <ion-select-option value="Bebidas">Bebidas</ion-select-option>
+        <ion-select-option value="Pan y pasteles">Pan y pasteles</ion-select-option>
+        <ion-select-option value="Preparados">Preparados</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    
+
+    <ion-item>
+      <ion-label>Alimento</ion-label>
+      <ion-select placeholder="Selecciona" [(ngModel)]="foodName">
+        <ng-container *ngFor="let food of foods">
+          <ng-container *ngIf="food.category == category">
+            <ng-container *ngFor="let f of food.products">
+              <ion-select-option>{{f.name}}
+                
+              </ion-select-option>
+            </ng-container>      
+          </ng-container>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cantidad (g/ml)</ion-label>
+      <ion-input type="number" [(ngModel)]="foodCuantity"></ion-input>
+    </ion-item>
+    
+
+    <ion-button (click)="addFoodToMeal()" expand="block">Añadir Alimento</ion-button>
+
+    <ng-container *ngIf="nMeal.meal.length>0">
+      <h1>Preparando comida</h1>
+      {{nMeal.name}}
+      <ion-item *ngFor="let food of nMeal.meal">
+        {{food.name}} - {{food.cuantity}} gr
+        <ion-button (click)="deleteFood(food)" color="danger" slot="end">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ng-container>
+
+    <ion-button (click)="addMealToDay()" expand="block">Cerrar Comida</ion-button>
+
+    <br>
+    
+    <ng-container *ngFor="let nmeal of dietDay.plan">
+      <p class="mealNumber">{{nmeal.name}} - {{nmeal.hour | date: 'shortTime'}}</p>
+      <ion-item class="plan" *ngFor="let a of nmeal.meal">
+        {{a.name}} x {{a.cuantity}} - g/ml
+      </ion-item>
+    </ng-container>
+
+    <ion-button (click)="finalize()" expand="block">Finalizar</ion-button>
+
+</ion-content>

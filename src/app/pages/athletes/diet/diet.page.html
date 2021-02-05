@@ -1,0 +1,33 @@
+<ion-content>
+
+  <ion-back-button defaultHref="/tabs/plannings">
+  </ion-back-button>
+  
+  <div class="center">
+    <ion-slides #slides pager="true"  (ionSlideDidChange)="showChart(slides)">
+      <ion-slide class="stepOne" *ngFor="let d of diet2" >
+        <ion-card>
+          <ion-card-title>
+            {{d.name}}
+          </ion-card-title>
+          
+          <ion-card-content> 
+            <ng-container *ngFor="let plan of d.plan">
+              <b>{{plan.name}}</b><button class="macrosButton" button (click)="openMacrosModal(plan)">M</button> <br>
+              <b>{{plan.hour | date: 'shortTime'}}</b>
+              <li *ngFor="let food of plan.meal">
+                {{food.name}} - {{food.cuantity}} gr/ml
+              </li>
+              -----------------------------------
+              <br>
+            </ng-container>            
+          </ion-card-content>
+          
+        </ion-card>
+        
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <h1>Macros Totales</h1>
+  <div style="display: block"><canvas id="yudhatp-chart"></canvas></div>   
+</ion-content>

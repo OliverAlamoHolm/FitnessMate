@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Alimentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let food of foods" class="cat">
+    <ion-col text-left button tappable (click)="food.expanded = !food.expanded" align-self-center>
+      <a>{{food.category}}</a>
+    </ion-col>
+    <div *ngIf="food.expanded">
+      <ion-list *ngFor="let f of food.products">
+        <ion-item button [routerLink]="['/food-details', f.name]">        
+          <p class="item-title">{{f.name}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

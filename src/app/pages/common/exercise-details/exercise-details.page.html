@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/exercises">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{pName}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngFor="let cat of exercises">
+    <div *ngFor="let product of cat.exercises">
+      <ng-container *ngIf="product.name===pName">
+        <img src="{{product.picture}}">
+        <p class="item-desc" slot="end">{{product.name}}</p>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>

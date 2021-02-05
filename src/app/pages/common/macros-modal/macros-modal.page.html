@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{plan.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <h4>Calorias: {{plan.calories | number  :'1.0-0'}} kcals</h4>
+  <h4>Proteinas: {{plan.protein |  number  :'1.0-0'}} g</h4>
+  <h4>Hidratos: {{plan.carbs | number  :'1.0-0'}} g</h4>
+  <h4>Grasas: {{plan.fat | number  :'1.0-0'}} g</h4>
+
+</ion-content>

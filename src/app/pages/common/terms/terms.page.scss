@@ -1,0 +1,28 @@
+ion-content{
+  
+    --background:linear-gradient( rgba(255, 255, 255, 0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(255, 255, 255) 95.52%) ,url('../../../../assets/training3.jpg');
+      --background-size:50px;
+      --text-align:center;
+    
+  }
+ion-back-button{
+    margin-right: 90%;
+  }
+
+ion-title{
+    position:absolute;
+    top:4%;
+    font-size: 1.5em;
+    left:20%;
+
+}
+
+p{
+    margin-top: 10%;
+}
+
+.politics{
+    color:#03bfbc;
+    text-align: center;
+    margin-top: 1em;
+  }

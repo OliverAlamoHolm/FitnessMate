@@ -1,0 +1,74 @@
+<ion-content class="ion-padding">
+
+  <div class="container">
+    <div>
+      <ion-icon name="information" button (click)="changeTab(1)"></ion-icon>
+      <ion-icon name="bar-chart" button (click)="changeTab(2)"></ion-icon>
+    </div>
+  
+    <ng-container *ngIf="tabSelector==1">
+      <ion-list>
+        <img src={{avatar}}>
+        <ion-item>
+          <div class="form-group">
+            <ion-input type="file" accept=".png, .jpg" (change)="onLoad($event)"></ion-input>
+          </div>
+        </ion-item>
+  
+           
+        <ion-item>
+          Nombre: 
+          <ion-input [(ngModel)]="actualName" maxlength="10" minlength="1">
+          </ion-input>
+        </ion-item>      
+        <ion-item>
+          Apellido: 
+          <ion-input [(ngModel)]="actualLastName" maxlength="20" minlength="1">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          Correo: 
+          {{actualMail}}
+        </ion-item> 
+      </ion-list>
+
+      <ion-button class="update-btn" (click)="update()">Actualizar</ion-button>
+    </ng-container>
+  
+    <ng-container *ngIf="tabSelector==2">
+      <br>
+      <ng-container *ngIf="progress.length == 0">
+        No se encontraron entradas de progresos.
+      </ng-container>
+      <ion-slides #slides pager="true" [options]="slideOpts">
+        <ion-slide class="stepOne" *ngFor="let p of progress" >
+          <ion-card class="progressCards">
+            <ion-card-title color="dark">
+              <h1 color="dark" style="font-size: 20px;">{{p.date}}</h1>
+              <div class="progressParams" *ngIf="p.weight != null">Peso: {{p.weight}} kg</div>
+              <div class="progressParams" *ngIf="p.fat != null">Grasa: {{p.fat}} %</div>
+              <div class="progressParams" *ngIf="p.muscleMass != null">Masa Muscular: {{p.muscleMass}} kg</div>
+              <div class="progressParams" *ngIf="p.text!= null">{{p.text}}</div>
+            </ion-card-title>
+            <ion-card-content>
+              <ion-slides>
+                <ion-slide *ngFor="let image of p.image; let i = index">
+                  <img class="prog-image" src={{image}} button (click)="openImageModal(p.image[i])">
+                </ion-slide>
+              </ion-slides>
+            </ion-card-content>
+          </ion-card>
+          
+        </ion-slide>
+      </ion-slides>
+  
+    </ng-container>
+
+  </div>
+
+  
+
+
+  
+ 
+</ion-content>

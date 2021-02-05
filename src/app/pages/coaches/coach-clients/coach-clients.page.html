@@ -1,0 +1,26 @@
+<ion-content>
+
+  <p *ngIf="plans.length == 0" class="no-clients">
+    No se ha encontrado ningún cliente.
+  </p>
+  <div *ngFor="let plan of plans"> 
+    <h1 *ngIf="plan.members.length>0">{{plan.name}}</h1>
+    <ng-container *ngFor="let cli of plan.members">  
+      <ion-item button router [routerLink]="['/client-profile', cli]">   
+        <ng-container *ngFor="let ath of athletes">
+          <ng-container *ngIf="ath.uid == cli" class="cont">
+            <ion-avatar ion-start>
+              <img src="{{ath.avatar}}">
+            </ion-avatar>
+            <ion-label class="clientDetails">
+              <h2><b>{{ath.name}} {{ath.lastName}}</b></h2>
+            </ion-label>
+            <ion-button slot="end" color="danger" (click)="alertDeleteClient(plan, cli)">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ng-container>
+        </ng-container>            
+      </ion-item>
+    </ng-container>
+  </div>
+</ion-content>

@@ -1,0 +1,30 @@
+<!--SplashScreen Code-->
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/logowhite.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-content class="ion-padding">
+  <img src="assets/logowhite.png">
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input [(ngModel)]="password" type="password" name="password" ></ion-input>
+  </ion-item>
+  <div>
+    <ion-button class="loginButton" (click)="OnSubmitLogin()" color="dark">Login</ion-button>
+    <ion-button class="loginButtonGoogle" (click)="OnSubmitLoginGoogle()">
+      <ion-icon name="logo-google"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <p  class="createAccount" routerLink="/register">Crear Cuenta</p>
+
+  <p  class="whoWeAre" routerLink="/whoweare">¿Quienes somos?</p>
+</ion-content>

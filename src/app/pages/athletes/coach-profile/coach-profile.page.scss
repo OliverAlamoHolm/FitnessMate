@@ -1,0 +1,79 @@
+ion-content{
+   --background:linear-gradient( rgb(250, 250, 250) 1.48%, rgb(255, 255, 255) 12.52%, rgb(253, 253, 253) 95.52%);
+}
+
+
+ion-back-button{
+   
+   position:absolute;
+   top:1%;
+   left:5%;
+}
+body{
+   font-family: Montserrat, sans-serif;
+   --ion-background-color: #fff;
+}
+
+.container{
+   user-select: none;
+   background: #fff;
+   color: #b3b8cd;
+   border-radius: 5px;
+   width: 100%;
+   text-align: center;
+
+}
+
+.cover-photo{
+   background: url('../../../../assets/training.jpg');
+   height: 160px;
+   width: 100%;
+   border-radius: 5px 5px 0px 0px;
+}
+
+.profile{
+   height: 120px;
+   width: 120px;
+   border-radius: 50%;
+   margin: 93px 0px 0px -175px;
+   border:1px solid #f0f0f0;
+   padding:7px;
+   background: #f0f0f0;
+}
+
+.profile-name{
+   font-size: 25px;
+   font-weight: bold;
+   margin: 27px 0px 0px 120px; 
+}
+
+.about{
+   margin-top:35px;
+   line-height: 21px;
+}
+
+
+
+
+.container ion-icon{
+   padding-left: 20px;
+   padding: 5%;
+   font-size: 20px;
+   margin-bottom: 20px;
+   cursor: pointer;
+   transition: 0.5s;
+}
+
+.container ion-icon:hover{
+   color: #03bfbc;
+
+}
+
+ion-item{
+   color: #b3b8cd;
+}
+
+.payButton{
+   margin-left: 45%;
+   
+}

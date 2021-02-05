@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ejercicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngFor="let ex of exercises" class="muscle">
+    <ion-col button tappable (click)="ex.expanded = !ex.expanded" class="ion-align-self-center ion-text-left">
+      <a>{{ex.category}}</a>
+    </ion-col>
+    <div *ngIf="ex.expanded">
+      <ion-list *ngFor="let exe of ex.exercises">
+        <ion-item button [routerLink]="['/exercise-details', exe.name]">
+          <ion-avatar ion-start>
+            <img src="{{exe.picture}}">
+          </ion-avatar>
+          <p class="item-title"> {{exe.name}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

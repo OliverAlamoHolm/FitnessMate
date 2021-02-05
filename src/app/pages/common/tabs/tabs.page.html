@@ -1,0 +1,68 @@
+<!--Athlete Tab-->
+<ion-content *ngIf="actualRol=='athlete'" class="athlete-content">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</ion-content>
+<ion-content *ngIf="actualRol=='coach'" class="coach-content">
+  <div class="spinner">
+    <div class="double-bounce12"></div>
+    <div class="double-bounce21"></div>
+  </div>
+</ion-content>
+<ion-tabs>
+  <div *ngIf="actualRol=='athlete'">
+    <ion-tab-bar class="athlete-tab" slot="bottom"  color="light">
+      <ion-tab-button tab="athleteHome">
+        <ion-badge *ngIf="notifications> 0">{{notifications}}</ion-badge>
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="athleteProfile">
+        <ion-icon name="body"></ion-icon>
+        <ion-label>Yo</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="myCoach" *ngIf="actualUserCoach==''">
+        <ion-icon name="people-circle"></ion-icon>
+        <ion-label>Entrenadores</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="myCoachProfile" *ngIf="actualUserCoach!=''">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Entrenador</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="plannings">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Plannings</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="athlete-messages">
+        <ion-icon name="paper-plane"></ion-icon>
+        <ion-label>Mensajes</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </div>
+<!--Coach Tab-->
+  <div *ngIf="actualRol=='coach'">
+    <ion-tab-bar class="athlete-tab" color="light" slot="bottom">
+      <ion-tab-button tab="coachHome">
+        <ion-badge *ngIf="notifications > 0">{{notifications}}</ion-badge>
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="coachProfile">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Mi Perfil</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="coachClients">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Mis clientes</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="messages">
+        <ion-icon name="chatbubbles"></ion-icon>
+        <ion-label>Mensajes</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </div>
+</ion-tabs>

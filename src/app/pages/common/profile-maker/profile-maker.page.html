@@ -1,0 +1,67 @@
+<ion-content class="ion-padding">
+
+  <div class="container">
+    <div>
+      <ion-icon name="ellipse" button (click)="changeTab(1)"></ion-icon>
+      <ion-icon name="ellipse" button (click)="changeTab(2)"></ion-icon>
+      <ion-icon name="ellipse" button (click)="changeTab(3)"></ion-icon>
+      <ion-icon name="ellipse" button (click)="changeTab(4)"></ion-icon>
+      <ion-icon name="ellipse" button (click)="changeTab(5)"></ion-icon>
+    </div>
+  </div>
+
+  <ng-container *ngIf="tabSelector==1">
+    <h1>Bienvenido a FitnessMate</h1>
+    <img src="../../../../assets/logo.png">
+    <p>Comenzaremos por establecer tu perfil de usuario
+    Navega entre las distintas vistas para avanzar en tu creación de perfil</p>
+
+  </ng-container>
+
+  <ng-container *ngIf="tabSelector==2">
+    <div class="center">
+      <h1>Selecciona un Rol</h1>
+      <br>
+      <br>
+      <br>
+      <ion-label  button (click)="changeRol('coach')" class="rol">Entrenador</ion-label>
+      <br>
+      <br>
+      <br>
+      <ion-label  button (click)="changeRol('athlete')" class="rol">Atleta</ion-label>
+    </div>    
+  </ng-container>
+
+  <ng-container *ngIf="tabSelector==3">
+
+    <h1>Introduce tu nombre</h1>
+    <br>
+    <ion-label class="name" position="floating">Nombre</ion-label><br>
+    <ion-input type="text" [(ngModel)]="name"></ion-input><br>
+    <ion-label class="name">Apellidos</ion-label><br>
+    <ion-input type="text" [(ngModel)]="lastName"></ion-input><br>
+    
+  </ng-container>
+
+  <ng-container *ngIf="tabSelector==4">
+    <h1>Seleciona una imagen de perfil</h1>
+    <ion-avatar class="avat">
+      <img src={{avatar}}>
+    </ion-avatar>
+
+    <ion-item>
+      <div class="form-group">
+        <ion-input type="file" accept=".png, .jpg" (change)="onLoad($event)"></ion-input>
+      </div>
+    </ion-item>
+    
+  </ng-container>
+
+  <ng-container *ngIf="tabSelector==5">
+
+    <ion-button (click)="finalize()" class="finalize-btn">Finalizar</ion-button>
+    
+  </ng-container>
+</ion-content>
+
+

@@ -1,0 +1,55 @@
+
+
+
+<ion-content class="ion-padding">
+
+  
+  <ion-back-button defaultHref="/tabs/messages" color="light">
+  </ion-back-button>
+
+
+
+  
+  <div class="sk-chase" *ngIf="showSpinner == true">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
+
+
+  <div style="display: flex; justify-content: center;">
+    <ion-avatar>
+      <img src="{{avatar}}">
+    </ion-avatar>
+  </div> 
+  <div class="name"  style="display: flex; justify-content: center;">{{name}}</div>
+  
+  <ion-grid>
+    <ion-row  *ngFor="let m of messages">
+      <ion-col  offset="3" size="9" *ngIf="m.transmitter == actualUID" class="message my-message">
+    
+        <span>{{m.message}}</span>
+        <div class="time" text-right><br>{{m.date}}</div>
+      </ion-col>
+      
+      <ion-col  size="9" *ngIf="m.transmitter != actualUID" class="message other-message">
+
+        <span>{{m.message}}</span>
+        <div class="time" text-right><br>{{m.date}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-textarea [(ngModel)]="messageText"></ion-textarea>
+    <ion-button (click)="sendMessage()" color="dark">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Progreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item color="light">
+    <ion-input placeholder="Peso" type="number" [(ngModel)]="weight"></ion-input>
+  </ion-item>
+  <ion-item color="light">
+    <ion-input placeholder="% de grasa" type="number" [(ngModel)]="fat"></ion-input>
+  </ion-item>
+  <ion-item color="light">
+    <ion-input placeholder="Masa muscular" type="number" [(ngModel)]="muscleMass"></ion-input>
+  </ion-item>
+  <ion-item color="light" class="progressArea">
+    <ion-textarea placeholder="Añade información adicional" [(ngModel)]="text"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <div class="form-group">
+      <h5>Seleccionar Imagen</h5>
+      <ion-input type="file" accept=".png, .jpg" (change)="onLoad($event)"></ion-input>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="form-group">
+      <h5>Seleccionar Imagen</h5>
+      <ion-input type="file" accept=".png, .jpg" (change)="onLoad2($event)"></ion-input>
+    </div>
+  </ion-item>
+  <br>
+  <ion-button (click)="addProgress()">
+    Finalizar
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,32 @@
+ion-content{
+  --background:linear-gradient( rgb(250, 250, 250) 1.48%, rgb(235, 235, 235) 12.52%, rgb(253, 253, 253) 95.52%);
+  align-items: center;
+}
+.cropped {
+  width: 150%; /* width of container */
+  height: 50%; /* height of container */
+  overflow: hidden;
+  //border: 5px solid white;
+}
+
+.cropped img {
+  //margin: -10px 0px 0px -180px;
+  filter: brightness(50%);
+}
+
+h1{
+  position: absolute;
+  color:white;
+}
+
+.diet{
+  top:70%;
+  left:45%;
+}
+
+.routine{
+  top: 15%;
+  left:30%;
+}
+
+

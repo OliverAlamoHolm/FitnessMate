@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/athlete-profile">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>imc-calculator</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-item>
+  <ion-label>Selecciona tu Género</ion-label>
+  <ion-select placeholder="Selecciona Genero" interface="action-sheet" [(ngModel)]="gender">
+    
+        <ion-select-option value="female">Mujer 
+        </ion-select-option>
+        <ion-select-option value="male">Hombre 
+        </ion-select-option>
+     
+  </ion-select>
+</ion-item>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Peso kg</ion-label>
+    <ion-input type="number" [(ngModel)]="weight" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Altura cm</ion-label>
+    <ion-input type="number" [(ngModel)]="heigh"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Edad</ion-label>
+    <ion-input type="number" [(ngModel)]="age"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cuello cm</ion-label>
+    <ion-input type="number" [(ngModel)]="neck"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Abdomen cm</ion-label>
+    <ion-input type="number" [(ngModel)]="waist"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cadera cm(Solo mujeres)</ion-label>
+    <ion-input type="number" [(ngModel)]="hips"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="calculate()" expand="block">Calcular</ion-button>
+
+  <ng-container *ngIf="mgMass != null">
+    <ion-card color="light">
+      <ion-card-title>Calculos</ion-card-title>
+      <ion-card-content>
+        <ion-label>IMC: {{IMC}}</ion-label><br>
+        <ion-label>Grasa Corporal: {{bodyFat}}</ion-label><br>
+        <ion-label>Masa Magra: {{mgMass}}</ion-label><br>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  
+
+</ion-content>

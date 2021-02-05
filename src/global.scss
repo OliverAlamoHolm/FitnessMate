@@ -1,0 +1,123 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import '~animate.css/animate.min.css';
+
+//Modals
+
+.fee-modal{
+    --height: 50%;
+    --border-radius: 10px;
+    padding: 25px;
+  }
+
+  .trainer-fee{
+    --height: 50%;
+    --border-radius: 10px;
+    padding: 25px;
+  }
+
+  .trainingplan-modal{
+    --height: 70%;
+    --border-radius: 10px;
+    padding: 25px;
+  }
+
+  .dietplan-modal{
+    --height: 50%;
+    --border-radius: 10px;
+    padding: 25px;
+  }
+  .ex-modal{
+    --height: 50%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background-color:white;
+
+  }
+
+  .notes-modal{
+    --height: 30%;
+    --width: 70%;
+    --border-radius: 10px;
+    padding: 25px;
+  }
+  .macros-modal{
+    --height: 40%;
+    --width: 70%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background-color:white;
+  }
+
+  .progress-modal{
+    --height: 95%;
+    --width: 100%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background-color:white;
+  }
+  .progressimage-modal{
+    --height: 90%;
+    --width: 100%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background-color:white;
+    
+  }
+
+  .payment-modal{
+    --height: 50%;
+    --width: 100%;
+    --border-radius: 10px;
+    padding: 25px;
+    --background-color:white;
+    
+  }
+
+
+
+  // Ionic Content
+  
+  ion-content{
+    //--background:linear-gradient( rgba(255, 251, 251,0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(255, 254, 254) 95.52%) ,url('assets/back32.jpg');
+    //--background: #A72140;
+    --background-size:auto;
+    --text-align:center;
+    max-width: 700px;
+}
+ion-header{
+  max-width: 700px;
+
+}
+
+ion-footer{
+  max-width: 700px;
+}
+ion-tabs{
+  max-width: 700px;
+}
+

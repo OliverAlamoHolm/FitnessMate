@@ -1,0 +1,29 @@
+
+ion-content{
+  
+  --background:linear-gradient( rgba(255, 255, 255, 0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(255, 255, 255) 95.52%) ,url('../../../../assets/training3.jpg');
+    --background-size:50px;
+    --text-align:center;
+    text-align:center;
+  --color:white;
+  
+}
+
+  div{
+      width: 70%;
+      margin-left: 15%;
+      margin-top: 40%;
+  }
+
+  p{
+      color:white;
+  }
+
+  .logout-btn{
+    margin-left: 88%;
+    margin-top: 5%;
+    color:white;
+    font-size: 2em;
+  }
+
+  

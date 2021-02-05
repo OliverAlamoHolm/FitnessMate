@@ -1,0 +1,70 @@
+ion-card{
+  display: flex;
+  flex-direction: column;
+  
+  width: 90% !important;
+  margin: 10 !important;
+  border-radius: 10px;
+}
+
+
+ion-back-button{
+  color:white;
+  margin-right: 80%;
+}
+
+ion-card-title{
+  margin-top:1em;
+  font-size: 2.5em;
+  color:black;
+}
+ion-card-subtitle{
+  font-size: 2em;
+  color:black;
+}
+
+ion-card-content {
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+}
+
+ion-item{
+  font-size:1.5em;
+}
+
+.notes{
+  --width: 10%;
+  --height: 10%;
+  --vertical-align: middle;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  margin-bottom: 5%;
+  font-size: 15px;
+
+}
+
+.info{
+  text-decoration:none;
+  color:black;
+  background-color: #ffe6f2;
+  border-radius: 5px;
+  width:10%;
+  height: 20px;
+  margin-left: 1%;
+
+}
+
+.notesButton{
+  margin-left: 1%;
+  text-decoration:none;
+  color:black;
+  background-color: #e6ffee;
+  border-radius: 5px;
+  width:10%;
+  height: 20px;
+}
+ion-content{
+  --background:linear-gradient( rgba(255, 251, 251,0) 1.48%, rgba(0, 0, 0, 0) 12.52%, rgb(0, 0, 0) 95.52%) ,url('../../../../assets/training3.jpg');
+  --background-size:auto;
+  --text-align:center;
+}

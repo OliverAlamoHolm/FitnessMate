@@ -1,0 +1,45 @@
+<ion-content >  
+  <ion-item button  expand="block" (click)="payFee()" color="light" *ngIf="today == payDay">
+    <ion-icon class="payButton" name="card"></ion-icon>
+    <ion-badge>!</ion-badge>
+  </ion-item>
+
+  
+  
+  <div class="container">
+    <div class="cover-photo">
+      <ion-back-button defaultHref="/tabs/myCoach" color="light" *ngIf="cUID != actualCUID">
+      </ion-back-button>
+      <img src="{{actualCAvatar}}" class="profile">
+    </div>
+
+    <div class="profile-name">
+      {{actualCName}}
+    </div>
+    <p class="about">{{actualCBio}}</p>
+
+    <ng-container *ngIf="tabSelector==true">
+      <ion-button class="msn-btn" (click)="goToMessaging()">Mensaje</ion-button>
+      <ion-button class="tar-btn" (click)="changeTab(false)">Tarifas</ion-button>
+      <div>
+        <ion-icon name="logo-instagram" button (click)="goToSocialMedia(1)"></ion-icon>
+        <ion-icon name="logo-facebook" button (click)="goToSocialMedia(2)"></ion-icon>
+        <ion-icon name="logo-linkedin" button (click)="goToSocialMedia(3)"></ion-icon>
+      </div>
+      <p  routerLink="/my-coach">Ver otros</p>
+    </ng-container>
+    <ng-container *ngIf="tabSelector==false">
+      <ion-button class="msn-btn">Mensaje</ion-button>
+      <ion-button class="profile-btn" (click)="changeTab(true)">Perfil</ion-button>
+      <br>
+      
+      <p *ngIf='actualPlanName != "" ' button (click)="cancelPlan()">Cancelar Suscripción actual</p>
+      <ion-list>
+        <ion-item *ngFor="let f of fees" (click)="openFee(f)">
+          {{f.name}}
+        </ion-item>
+      </ion-list>
+    </ng-container>
+  </div>
+</ion-content>
+

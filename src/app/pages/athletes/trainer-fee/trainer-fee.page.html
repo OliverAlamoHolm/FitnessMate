@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{fee.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding text-center" color="light">
+  <h1>{{fee.price}} $</h1>
+  <p>{{fee.description}}</p>
+  <br>
+  <ng-container *ngIf='planName==""'>
+    <ion-button expand="block" (click)="subscribeToPlan(fee.name)">Contratar Plan</ion-button>
+  </ng-container>
+  
+</ion-content>

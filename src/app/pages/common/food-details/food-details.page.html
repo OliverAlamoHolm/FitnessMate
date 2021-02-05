@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/food">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{fName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+
+  <ion-card color="light">
+    <ion-item>
+      <ion-label position="floating">Cantidad (gr/ml)</ion-label>
+      <ion-input [(ngModel)]="inputGr" type="number" ></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card color="light">
+    <ion-item>
+      <h1>Calorias: {{fCalories * (inputGr / 100) }} cals</h1> 
+    </ion-item>
+    <ion-item>
+      <h4>Proteinas: {{fProteins * (inputGr / 100) }} g</h4>
+    </ion-item>
+    <ion-item>
+      <h4>Carbohidratos: {{fCarbs * (inputGr / 100) }} g</h4> 
+    </ion-item>
+    <ion-item>
+      <h4>Grasas: {{fFat * (inputGr / 100) }} g</h4> 
+    </ion-item>
+  </ion-card>
+
+</ion-content>

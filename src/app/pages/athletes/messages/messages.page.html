@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-item *ngFor="let chat of myChats">
+    <ng-container *ngFor="let user of chat.users">
+      <ng-container *ngIf="user != actualUID">
+        <ng-container *ngFor="let cch of coaches">
+          <ng-container *ngIf="cch.uid == user">
+            <ion-item button router [routerLink]="['/chat', cch.id]">
+              <ion-avatar ion-start>
+                <img src="{{cch.avatar}}">
+              </ion-avatar>
+              <ion-label class="chatDetails">
+                <h2><b> {{cch.name}} {{cch.lastName}}</b></h2>
+                <b class="message">{{chat.messages[0].message}}</b>
+              </ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ion-item>
+</ion-content>

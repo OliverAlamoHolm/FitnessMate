@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-input type="text" [(ngModel)]="name"></ion-input></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="light" class="ion-padding text-center">
+
+  <h1><ion-input type="number" [(ngModel)]="price"> </ion-input></h1>
+  <p><ion-input type="text" [(ngModel)]="description"></ion-input></p>
+  <br>
+  <ion-button expand="block" (click)="updateFee()">Editar</ion-button>
+</ion-content>

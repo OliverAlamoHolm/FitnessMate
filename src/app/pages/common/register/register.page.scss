@@ -1,0 +1,15 @@
+ion-content{
+  
+    --background:linear-gradient( rgba(255, 255, 255, 0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(255, 255, 255) 95.52%) ,url('../../../../assets/training3.jpg');
+      --background-size:50px;
+      --text-align:center;
+    
+  }
+  
+.terms{   
+    color:white;
+}
+
+ion-checkbox{
+    margin-right: 2%;
+}
