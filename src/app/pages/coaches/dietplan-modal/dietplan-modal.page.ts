@@ -178,10 +178,10 @@ export class DietplanModalPage implements OnInit {
     this.showToast('Dia de la dieta finalizada');
     let notification: Notifycation = {
       receiver: this.client.uid,
-      message: 'Tu entrenador ha actualizado tu rutina de alimentación, observa los nuevos cambios en tu dieta!',
+      message: 'Tu entrenador ha actualizado tu rutina de alimentación para los ' +  this.dietDay.name + ' .',
       date: new Date(),
       red: false,
-      image: '../../../../assets/diet log.jpg',
+      image: '../../../../assets/diet.jpg',
       title: 'Actualización en dieta', 
       expanded: false
     }

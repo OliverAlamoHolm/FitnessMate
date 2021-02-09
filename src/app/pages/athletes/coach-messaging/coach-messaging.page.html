@@ -5,10 +5,12 @@
     <ion-back-button defaultHref="/tabs/my-coach" color="light">
     </ion-back-button>
 
-    <ion-avatar class="avatar">
-      <img src="{{avatar}}">
-    </ion-avatar>
-    <div class="name">{{name}}</div>
+    <div style="display: flex; justify-content: center;">
+      <ion-avatar>
+        <img src="{{avatar}}">
+      </ion-avatar>
+    </div> 
+    <div class="name"  style="display: flex; justify-content: center;">{{name}}</div>
 
   <ion-grid>
     <ion-row  *ngFor="let m of messages">

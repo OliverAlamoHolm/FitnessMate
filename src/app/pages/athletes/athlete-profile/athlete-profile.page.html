@@ -36,10 +36,19 @@
     </ng-container>
   
     <ng-container *ngIf="tabSelector==2">
-      <br>
+  
       <ng-container *ngIf="progress.length == 0">
         No se encontraron entradas de progresos.
       </ng-container>
+
+      <ng-container *ngIf="progress.length > 2">
+        
+        <h1>Cronología de peso</h1>
+        <canvas id="yudhatp-chart"></canvas>
+
+      </ng-container>
+
+      <h1>Progresos</h1>
       <ion-slides #slides pager="true" [options]="slideOpts">
         <ion-slide class="stepOne" *ngFor="let p of progress" >
           <ion-card class="progressCards">

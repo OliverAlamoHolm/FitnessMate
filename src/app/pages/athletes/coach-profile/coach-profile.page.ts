@@ -109,7 +109,6 @@ export class CoachProfilePage implements OnInit {
     let count = 0;
     if (this.chats.length > 0){
       for (let chat of this.chats){
-        console.log(chat)
         let users = chat.users;
         if(users.includes(this.actualUID) && users.includes(this.actualCoach.uid)){
           this.router.navigate(['/coach-messaging', chat.idn, this.actualCoach.uid, this.actualCoach.name + ' ' + this.actualCoach.lastName, this.actualCoach.avatar] )  
@@ -232,7 +231,6 @@ export class CoachProfilePage implements OnInit {
       i1++;
       if (f.name == this.actualAthlete.planName){
         let members = f.members;
-        console.log(members)
         for(let m of f.members){
           i2++;
           if(m == this.actualAthlete.uid){

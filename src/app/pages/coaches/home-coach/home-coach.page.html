@@ -1,46 +1,31 @@
-<ion-content class="ion-padding">
-  <div class="container">
-    <ion-icon class="logout-btn" name="exit-outline" button (click)="logout()" ></ion-icon>
-    <ng-container *ngIf="nots.length == 0">
-    
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </ng-container>
+<ion-content>
+  <ion-icon class="logout-btn" name="exit-outline" button (click)="logout()"></ion-icon>
+  <ng-container *ngIf="nots.length == 0">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="nots.length != 0">
     <div class="box">
       <div class="notifications">
         <ion-icon name="notifications"></ion-icon>
         <span class="num">{{notsLength}}</span>
       </div>
-    </div> 
-    <div class="nots-box">
-      <div *ngFor="let not of nots">
-        <ion-item class="not-box" button (click)="expand(not)"> 
-          <span>{{not.title}}</span><br>
-          <div class="time" text-right><br>{{not.date.toDate() | date :  'd MMM' }}</div>
-        </ion-item> 
-        <div class="not-content" *ngIf="not.expanded == true" text-align-center>
-          <br>
-          <ion-avatar>
-            <img src="{{not.image}}">
-          </ion-avatar>
-          <br>
-          <div style="text-align: center;">
-            <ion-label>
-              {{not.message}}
-            </ion-label>
-          </div>
-          <br>
-          <div style="text-align: center;">
-            <ion-button (click)="deleteNot(not.id)">
-              OK
-            </ion-button>
-          </div>
-        </div>  
-      </div>
     </div>
+    <div class="container">
+      <div class="card" *ngFor="let not of nots" onclick="this.classList.toggle('expanded')">
+        <img class="label" src="{{not.image}}">
+        <div class="text1">
+          <div class="text-content">
+            <h1 class="title">{{not.date.toDate() | date :  'd MMM' }}</h1>
+            <div class="body-text">{{not.message}}</div>
+            <ion-button (click)="deleteNot(not.id)">OK</ion-button>
+          </div>
+        </div>
+        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>
+      </div>
+    </div>  
   </ng-container>
-  </div>
 </ion-content>

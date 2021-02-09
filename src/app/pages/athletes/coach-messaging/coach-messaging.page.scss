@@ -1,40 +1,37 @@
 ion-content{
-  --background:linear-gradient( rgb(0, 0, 0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(0, 0, 0) 95.52%) ,url('../../../../assets/chatWall.jpg');
-  --background-size:auto;
-  --text-align:center;
+  margin: 0;
+  padding: 0;
+  --background:linear-gradient( rgba(255, 255, 255, 0) 1.48%, rgba(255, 255, 255, 0) 12.52%, rgb(255, 255, 255) 95.52%) ,url('../../../../assets/training3.jpg');
+    --background-size:auto;
+    --text-align:center;
+    align-items: center;
+
 }
 
 ion-back-button{
+  position: absolute;
   margin-right: 90%;
-
-
 }
-
 
 .us-name{
   color:white;
   font-size: 1.5em;
   margin-left: 50%;
+}
 
 
+ion-avatar{
+  height:  200px;
+  width:  200px;
 }
-.avatar{
-  position: absolute;
-  margin-left: 30%;
-  top: 2%;
-  width:35%;
-  height: 20%;
-}
+
 .name{
-    position:absolute;
-    top: 23%;
     font-size: 1.5em;
-    left: 35%;
     color:white;
 }
 
 ion-grid{
-    margin-top: 45%;
+    margin-top: 5%;
 }
 
 .receiverItem{
@@ -63,23 +60,20 @@ ion-grid{
     border-radius: 10px;
     margin-bottom: 4px;
     white-space: pre-wrap;
-
 }
 
-
-
 .other-message{
-
-    background: #dbe2dd;
+    background: #ffffff;
     color:black;
-
+    border: 1px solid #000000;
 }
 
 .my-message{
     //background: #DEB887;
-    background: #FFFFF0;
+    background: #ffffff;
     color:black;
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #03bfbc;
 }
 
 .time{
@@ -87,7 +81,6 @@ ion-grid{
     float:right;
     font-size: small;
 }
-
 
 
 // Spinner
@@ -115,7 +108,7 @@ ion-grid{
     display: block;
     width: 25%;
     height: 25%;
-    background-color: #bf034b;
+    background-color: #03bfa6;
     border-radius: 100%;
     animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
   }

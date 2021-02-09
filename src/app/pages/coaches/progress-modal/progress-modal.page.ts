@@ -126,7 +126,7 @@ export class ProgressModalPage implements OnInit {
                 message: 'Tu entrenador ha añadido una nueva entrada de progresos',
                 date: new Date(),
                 red: false,
-                image: this.avatar,
+                image: '../../../../assets/progs.jpg',
                 title: 'Nueva entrada de progresos',
                 expanded: false,
               }

@@ -140,6 +140,7 @@ export class AthleteHomePage implements OnInit {
   }
 
   deleteNot(not){
+    console.log('hol')
     this.notifycationsService.deleteNotifycation(not)
     this.nots = []
   }

@@ -25,6 +25,8 @@ export class AthleteMessagesPage implements OnInit {
     this.myChats = []
     this.chatService.getChats().subscribe(res =>{
       this.myChats = []
+      this.chats = []
+      console.log(this.myChats)
       this.chats = res;
       this.storageService.getActualAthlete().then(res=>{
         this.actualAthlete = res;

@@ -151,17 +151,15 @@ export class ClientProfilePage implements OnInit {
     let count = 0;
     if (this.chats.length > 0){
       for (let chat of this.chats){
-        console.log(chat)
         let users = chat.users;
         if(users.includes(this.actualUID) && users.includes(this.athleteUID)){
-          this.router.navigate(['/chat', chat.idn, this.athleteUID, this.athlete.name + ' ' + this.athlete.lastName, this.athlete.avatar] )  
+          this.router.navigate(['/chat', chat.idn,  this.athlete.name + ' ' + this.athlete.lastName, this.athlete.avatar] )  
           break; 
         }else{
           count ++;
         }
         
-      } 
-      
+      }  
     }
     if (count == this.chats.length){
       this.createChat(); 
@@ -246,7 +244,6 @@ export class ClientProfilePage implements OnInit {
   
 
   async openM(){
-    console.log(this.coachAvatar)
     let modal = await this.modalCtrl.create({
       component: ProgressModalPage,
       cssClass: 'progress-modal',

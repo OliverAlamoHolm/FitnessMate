@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import {Router} from '@angular/router';
 import{ProgressimageModalPage} from '../../common/progressimage-modal/progressimage-modal.page';
+import { Chart } from 'chart.js';
 
 
 @Component({
@@ -47,6 +48,7 @@ export class AthleteProfilePage implements OnInit {
   urlImage: Observable<string>;
 
   yudsegment: string = "cuenta";
+  
 
   constructor(private storageService: StorageService, private athleteService: AthleteService, 
     private toastController: ToastController, private modalCtrl: ModalController,
@@ -64,6 +66,7 @@ export class AthleteProfilePage implements OnInit {
       this.progress = res.progress
       this.athleteService.getAthlete(this.actualId).subscribe(res =>{
         this.progress = res.progress
+        
 
       })
       this.actualUid = res.uid;
@@ -81,6 +84,7 @@ export class AthleteProfilePage implements OnInit {
     })
     this.storageService.getActualID().then(res=>{
       this.actualId = res;
+      this.showChart();
     })
 
   }
@@ -199,5 +203,41 @@ export class AthleteProfilePage implements OnInit {
       }
     });
     modal.present();
+  }
+
+  showChart() {
+    
+    var length = this.progress.length;
+    var date1 = this.progress[0].date;
+    var date2 = this.progress[length-2].date;
+    var date3 = this.progress[length-1].date;
+    var weight1 = this.progress[0].weight;
+    var weight2 = this.progress[length-2].weight;
+    var weight3 = this.progress[length-1].weight;
+
+    
+    setTimeout(function(){
+      var ctx = (<any>document.getElementById('yudhatp-chart'))
+      var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [date1,date2, date3],
+          datasets: [{ 
+              data: [weight1, weight2, weight3],
+              label: "Peso kg.",
+              borderColor: "#03bfbc",
+              fill: false,
+              pointBackgroundColor: "#DC143C",
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: false,
+            text: 'Cronología Peso'
+          },
+        }
+        });
+    },3000);
   }
 }

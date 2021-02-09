@@ -88,11 +88,9 @@ export class ChatPage implements OnInit {
     }
     let lastM = "";
     if(this.messages.length>0){
-      let lastM =  this.messages[this.messages.length-1].date
-    }else{
-      let lastM = "asdf"
+       lastM =  this.messages[this.messages.length-1].date
     }
-    
+
     if(dat.substring(7, dat.length) != lastM.substring(7, lastM.length)){
       
       let not: Notifycation = {
@@ -100,7 +98,7 @@ export class ChatPage implements OnInit {
         message: 'Tienes nuevos mensajes de ' + this.userName,
         date: new Date(),
         red: false,
-        image: 'https://i.pinimg.com/originals/83/1b/a4/831ba49f9630882bc828fb68f4cf6398.jpg',
+        image: '../../../../assets/message.png',
         title: 'Nuevos mensajes',
         expanded: false,
       }

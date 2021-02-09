@@ -116,10 +116,10 @@ export class TrainingplanModalPage implements OnInit {
     this.showToast('Dia de la rutina finalizada');
     let notification: Notifycation = {
       receiver: this.client.uid,
-      message: 'Tu entrenador ha actualizado tu rutina de entrenamiento en el dia de ' + this.day.name + '. Revisa tus nuevos ejercicios.',
+      message: 'Tu entrenador ha actualizado tu rutina de entrenamiento para los ' + this.day.name + '.',
       date: new Date(),
       red: false,
-      image: this.avatar,
+      image: '../../../../assets/exercise.jpg',
       expanded:false,
       title: 'Actualización en rutina' 
     }

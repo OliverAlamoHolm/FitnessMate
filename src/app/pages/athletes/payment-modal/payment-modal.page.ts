@@ -92,7 +92,7 @@ export class PaymentModalPage implements OnInit {
           message:  this.actualAthlete.name + ' ' + this.actualAthlete.lastName + ' ha realizado un pago de ' + this.actualFeePrice +  ' euros por la suscripción en ' + this.actualAthlete.planName,
           date: new Date(),
           red: false,
-          image: '',
+          image: '../../../../assets/money.jpg',
           title: 'Pago recibido',
           expanded: false
         }
