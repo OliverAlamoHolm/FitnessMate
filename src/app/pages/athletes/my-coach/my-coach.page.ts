@@ -31,11 +31,9 @@ export class MyCoachPage implements OnInit {
     setTimeout(() =>{
       this.storageService.getActualAthlete().then(res =>{
         this.actualAthlete = res;
-        //this.actualCoach = res.coach; 
         this.actualId = res.idd;
         this.athleteService.getAthletes().subscribe(res =>{
           this.athletes = res;
-          
           for(let ath of this.athletes){
             if (ath.id == this.actualId){
               this.actualCoach = ath.coach;
@@ -44,7 +42,6 @@ export class MyCoachPage implements OnInit {
           this.coachService.getCoaches().subscribe(res =>{
             this.coaches = res;
             this.showSpinner = false;
-           
           })
         })
       })

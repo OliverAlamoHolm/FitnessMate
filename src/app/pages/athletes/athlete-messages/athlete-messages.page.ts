@@ -26,7 +26,6 @@ export class AthleteMessagesPage implements OnInit {
     this.chatService.getChats().subscribe(res =>{
       this.myChats = []
       this.chats = []
-      console.log(this.myChats)
       this.chats = res;
       this.storageService.getActualAthlete().then(res=>{
         this.actualAthlete = res;
@@ -36,8 +35,6 @@ export class AthleteMessagesPage implements OnInit {
             for(let user of chat.users){
               if (user == res){
                 this.myChats.push(chat)
-      
-
               }
             }
           }    
@@ -47,9 +44,6 @@ export class AthleteMessagesPage implements OnInit {
         })
       })
     })
-  }
-  refresh(){
-    this.myChats = [];
   }
 
   ionViewDidLeave(){
@@ -64,8 +58,6 @@ export class AthleteMessagesPage implements OnInit {
             for(let user of chat.users){
               if (user == res){
                 this.myChats.push(chat)
-      
-
               }
             }
           }    

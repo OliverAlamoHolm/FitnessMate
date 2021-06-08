@@ -55,18 +55,14 @@ export class CoachMessagingPage implements OnInit {
 
       this.chatService.getChats().subscribe(res =>{
         this.chats = res;
-
         for(let cht of this.chats){
           if(cht.idn == this.chatID){
             this.actualChat = cht;
             this.messages = cht.messages;
-          
           }
         }
       })
     });
-
-   
   }
 
   sendMessage(){
@@ -78,23 +74,19 @@ export class CoachMessagingPage implements OnInit {
     let lastM;
     if (this.messages.length<1){
       lastM = "date";
-      
-
     }else{
       lastM =  this.messages[this.messages.length-1].date
     }
-    
     if(dat.substring(7, dat.length) != lastM.substring(7, lastM.length)){
       let not: Notifycation = {
         receiver: this.coachUID,
         message: 'Tienes nuevos mensajes',
         date: new Date(),
         red: false,
-        image: '',
+        image: '../../../../assets/message.png',
         title: 'Nuevos mensajes',
         expanded: false,
-      }
-      
+      } 
     }
     this.messages.push(this.nMessage);
     this.actualChat.messages = this.messages;  
@@ -107,7 +99,5 @@ export class CoachMessagingPage implements OnInit {
         date : null
       }
     });
-    
-    
   }
 }

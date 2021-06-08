@@ -118,19 +118,12 @@ export class ChatPage implements OnInit {
       date : null
     }
 
-
     setTimeout(()=>{
       this.content.scrollToBottom(200)
     })
-    
-
-    
-
-
   }
 
   opMessages(){
-    
     this.router.navigateByUrl('/tabs/athlete-messages');
   }
 

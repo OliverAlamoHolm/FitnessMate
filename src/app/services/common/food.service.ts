@@ -317,6 +317,5 @@ export class FoodService {
 
   getFood() {
     return this.data;
-
   }
 }

@@ -1,12 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    
+  <ion-toolbar>   
     <ion-title>{{dietDay.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
     <h1>Elige la comida</h1>
     <ion-item>
       <ion-label>Comida</ion-label>
@@ -45,8 +43,6 @@
       </ion-select>
     </ion-item>
 
-    
-
     <ion-item>
       <ion-label>Alimento</ion-label>
       <ion-select placeholder="Selecciona" [(ngModel)]="foodName">
@@ -54,7 +50,6 @@
           <ng-container *ngIf="food.category == category">
             <ng-container *ngFor="let f of food.products">
               <ion-select-option>{{f.name}}
-                
               </ion-select-option>
             </ng-container>      
           </ng-container>
@@ -67,7 +62,6 @@
       <ion-input type="number" [(ngModel)]="foodCuantity"></ion-input>
     </ion-item>
     
-
     <ion-button (click)="addFoodToMeal()" expand="block">Añadir Alimento</ion-button>
 
     <ng-container *ngIf="nMeal.meal.length>0">
@@ -82,8 +76,6 @@
     </ng-container>
 
     <ion-button (click)="addMealToDay()" expand="block">Cerrar Comida</ion-button>
-
-    <br>
     
     <ng-container *ngFor="let nmeal of dietDay.plan">
       <p class="mealNumber">{{nmeal.name}} - {{nmeal.hour | date: 'shortTime'}}</p>
@@ -91,7 +83,6 @@
         {{a.name}} x {{a.cuantity}} - g/ml
       </ion-item>
     </ng-container>
-
     <ion-button (click)="finalize()" expand="block">Finalizar</ion-button>
 
 </ion-content>

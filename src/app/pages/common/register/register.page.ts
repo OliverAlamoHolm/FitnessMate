@@ -24,8 +24,6 @@ export class RegisterPage implements OnInit {
   }
 
   async onSubmitRegister(){
-
-
     if(this.terms == true){
       if (this.email.includes('@') && this.email.includes('.com')){
         if (this.password == this.password2){
@@ -35,16 +33,13 @@ export class RegisterPage implements OnInit {
             })
         }else{
           this.showToast('Las contraseñas no coinciden');
-    
         }
       }else{
         this.showToast('La cuenta de correo no posee el formato correcto')
       }
-
     }else{
       this.showToast('Debe aceptar las políticas de uso de la aplicación para poder registrarse')
     }
-    
   }
 
 

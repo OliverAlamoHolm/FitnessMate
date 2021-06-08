@@ -19,8 +19,5 @@ export class MacrosModalPage implements OnInit {
 
   ngOnInit() {
     this.plan = this.navParams.get('plan');
-    console.log(this.plan)
-
   }
-
 }

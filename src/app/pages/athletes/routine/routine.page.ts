@@ -23,9 +23,7 @@ export class RoutinePage implements OnInit {
     private athService: AthleteService) { }
 
   ngOnInit() {
-
     this.storageService.getActualAthlete().then(res =>{
-
       this.athService.getAthletes().subscribe(res2 =>{
         for(let a of res2){
           if(a.idd == res.idd){
@@ -38,17 +36,12 @@ export class RoutinePage implements OnInit {
     
   }
 
-  goInfo(){
-    this.router.navigateByUrl('exercises')
-  }
-
   async openExercise(name){
     let modal = await this.modalCtrl.create({
       component: ExModalPage,
       cssClass: 'ex-modal',
       componentProps: {
         exercise: name,
-       
       }
     });
 

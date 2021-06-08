@@ -84,11 +84,9 @@ export class DietplanModalPage implements OnInit {
           this.dietDay.totalCarbs = 0;
           this.dietDay.totalFat = 0;
           this.dietDay.plan = [];
-
         }
       }
     })
-    
   }
 
   addFoodToMeal(){  
@@ -114,7 +112,7 @@ export class DietplanModalPage implements OnInit {
       this.foodCuantity = null;
 
     }else{
-      this.showToast('Faltan datos!!!')
+      this.showToast('Faltan datos')
     }
   }
 
@@ -148,7 +146,6 @@ export class DietplanModalPage implements OnInit {
     this.nMeal.protein -= food.protein;
     this.nMeal.carbs -= food.carbs;
     this.nMeal.fat -= food.fat;
-
   }
 
   addMealToDay(){
@@ -166,12 +163,9 @@ export class DietplanModalPage implements OnInit {
       carbs: 0,
       fat: 0,
     }
-
   }
 
-
   finalize(){
-
     this.dietDiet[this.day] = this.dietDay;
     this.client.diet = this.dietDiet;
     this.athleteService.updateAthlete(this.client, this.clientId);

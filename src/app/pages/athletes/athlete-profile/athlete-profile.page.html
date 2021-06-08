@@ -14,7 +14,6 @@
             <ion-input type="file" accept=".png, .jpg" (change)="onLoad($event)"></ion-input>
           </div>
         </ion-item>
-  
            
         <ion-item>
           Nombre: 
@@ -42,13 +41,11 @@
       </ng-container>
 
       <ng-container *ngIf="progress.length > 2">
-        
         <h1>Cronología de peso</h1>
         <canvas id="yudhatp-chart"></canvas>
-
       </ng-container>
 
-      <h1>Progresos</h1>
+      <h1 *ngIf="progress.length > 0">Progresos</h1>
       <ion-slides #slides pager="true" [options]="slideOpts">
         <ion-slide class="stepOne" *ngFor="let p of progress" >
           <ion-card class="progressCards">
@@ -66,18 +63,9 @@
                 </ion-slide>
               </ion-slides>
             </ion-card-content>
-          </ion-card>
-          
+          </ion-card>     
         </ion-slide>
       </ion-slides>
-  
     </ng-container>
-
   </div>
-
-  
-
-
-  
- 
 </ion-content>

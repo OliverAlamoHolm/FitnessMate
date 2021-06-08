@@ -13,7 +13,6 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class VerificationPage implements OnInit {
 
   private load;
-
   user;
 
   constructor(private authService: AuthService, public router: Router, private userService: UsersService,
@@ -22,22 +21,18 @@ export class VerificationPage implements OnInit {
 
   ngOnInit() {
 
-    
   }
   
   refresh(){  
     window.location.reload()
-
   }
 
   watch(){
     this.user = this.AFauth.auth.currentUser
     let bool = this.authService.isEmailVerified(this.user)
-
     if(bool){
       this.router.navigateByUrl('profile-maker');
     }
-
   }
 
   resendMail(){

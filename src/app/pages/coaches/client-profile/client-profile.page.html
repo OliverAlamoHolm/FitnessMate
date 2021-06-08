@@ -1,147 +1,3 @@
-
-<!--
-
-
-<ion-content>
-  
-  <ion-back-button defaultHref="/tabs/coachClients">
-  </ion-back-button>
-
-  <ng-container>
-    <div class="profile-card">
-      <div class="header">
-        <div class="pic">
-          <img src="{{avatar}}">
-        </div>
-        <div class="name">
-          {{name}} {{lastName}}
-        </div>
-
-        <div class="plan">
-          Miembro {{plan}}
-        </div>
-        <div class="sm">
-          
-          <ion-icon button (click)="changeTab(1)" name="barbell"></ion-icon>
-          <ion-icon button (click)="changeTab(2)" name="fast-food"></ion-icon>
-          <ion-icon button (click)="changeTab(3)" name="body"></ion-icon>
-        </div>
-        <ion-button class="contact-btn" (click)="goToMessaging()">Mensaje</ion-button>
-
-        <div class="card-footer">
-          
-          <ng-container *ngIf="tabSelector==1" class="foot-content">
-            <h1>Rutina</h1>
-            <div class="center">
-              <ion-slides #slides pager="true">
-                <ion-slide class="stepOne" *ngFor="let day of routine">
-                  <ion-card>
-                    <ion-card-title>
-                      {{day.name}}
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                      {{day.muscles | slice:0:-1}}
-                    </ion-card-subtitle>
-                    <ion-card-content>
-                      <ion-list>
-                        <ng-container *ngFor="let ex of day.plan">
-                            <li *ngIf="ex.notes.length > 0">{{ex.name}} {{ex.series}}x{{ex.reps}} <button class="notesButton" (click)="openNoteModal(ex.notes)" color="light">N</button></li>
-                            <li *ngIf="ex.notes.length == 0">{{ex.name}} {{ex.series}}x{{ex.reps}} </li>
-                        </ng-container>
-                      </ion-list>
-                      <ion-button (click)="openPlan(day.number)" expand="block" class="contact-btn">Editar Rutina</ion-button>
-                      <br>
-                      .
-                    </ion-card-content>
-                    
-                  </ion-card>
-                </ion-slide>
-              </ion-slides>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="tabSelector==2" class="foot-content">
-            <h1>Dieta</h1>
-            <div class="center">
-              <ion-slides #slides pager="true">
-                <ion-slide class="stepOne" *ngFor="let d of diet">
-                  <ion-card>
-                    <ion-card-title>
-                      {{d.name}}  
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                      {{d.totalCals | number  :'1.0-0'}} calorias
-                      <br>
-                      {{d.totalProts |  number  :'1.0-0'}} gr de Proteina
-                      <br>
-                      {{d.totalCarbs |  number  :'1.0-0'}} gr de Hidratos
-                      <br>
-                      {{d.totalFat |  number  :'1.0-0'}} gr de Grasa
-                      
-                    </ion-card-subtitle>
-                    <ion-card-content>
-                      <ng-container *ngFor="let plan of d.plan">
-                        <b>{{plan.name}} </b>   <button class="macrosButton" button (click)="openMacrosModal(plan)">M</button> <br>
-                        <b>{{plan.hour | date: 'shortTime'}}</b>
-              
-                        <li *ngFor="let food of plan.meal">
-                          {{food.name}} - {{food.cuantity}} gr/ml                 
-                        </li>   
-                        -----------------------------------
-                      <br>  
-                      </ng-container>
-                      <ion-button (click)="openDiet(d.number)" expand="block" class="contact-btn">Editar</ion-button>
-                      <br>
-                      .
-                    </ion-card-content>
-                  </ion-card> 
-                </ion-slide>
-              </ion-slides>
-            </div>
-
-          </ng-container>
-
-          <ng-container *ngIf="tabSelector==3" class="foot-content">
-            <h1>Progresos</h1>
-            <ion-slides #slides pager="true" [options]="slideOpts">
-              <ion-slide class="stepOne" *ngFor="let p of progress" >
-                <ion-card class="progressCards">
-                  <ion-card-title color="dark">
-        
-                    <ion-button (click)="deleteProgress(p)" class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </ion-button>
-                 
-                    <h1 color="dark" style="font-size: 20px;">{{p.date}}</h1>
-                    <div class="progressParams" *ngIf="p.weight != null">Peso: {{p.weight}}</div>
-                    <div class="progressParams" *ngIf="p.fat != null">Grasa: {{p.fat}} %</div>
-                    <div class="progressParams" *ngIf="p.muscleMass != null">Masa Muscular: {{p.muscleMass}} kg</div>
-                    <div class="progressParams" *ngIf="p.text!= null">{{p.text}}</div>
-                  </ion-card-title>
-                  <br>
-                  <ion-card-content>
-                    <ion-slides>
-                      <ion-slide *ngFor="let image of p.image">
-                        <img class="prog-image" src={{image}} button (click)="openImageModal(p.image)">
-                      </ion-slide>
-                    </ion-slides>
-                  </ion-card-content>
-                </ion-card>
-                
-              </ion-slide>
-            </ion-slides>
-            <br>
-            <ion-button style="align-items: center;" (click)="openM()" class="contact-btn">Nueva Entrada</ion-button>
-
-          </ng-container>
-
-        </div>
-      </div>
-    </div>  
-  </ng-container>
-  
-</ion-content>
--->
 <ion-content class="ion-padding">
   <div class="container">
     <ion-back-button defaultHref="/tabs/coachClients" color="primary">
@@ -191,7 +47,6 @@
                 <br>
                 .
               </ion-card-content>
-              
             </ion-card>
           </ion-slide>
         </ion-slides>
@@ -236,7 +91,6 @@
           </ion-slide>
         </ion-slides>
       </div>
-
     </ng-container>
 
     <ng-container *ngIf="tabSelector==3" class="foot-content">
@@ -266,10 +120,6 @@
       </ion-slides>
       <br>
       <ion-button style="align-items: center;" (click)="openM()" class="contact-btn">Nueva Entrada</ion-button>
-
     </ng-container>
-      
   </div>
 </ion-content>
-
-

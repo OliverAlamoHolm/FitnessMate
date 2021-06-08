@@ -45,19 +45,13 @@ export class CoachProfilePage implements OnInit {
   payDay;
   havICoach = '';
 
-
-  
-
   constructor(private route: ActivatedRoute, private coachService: CoachService, 
     private storageService: StorageService, private athleteService: AthleteService,
      private router: Router, private modalCtrl: ModalController, private chatService: ChatService,
      private notsService: NotifycationsService, private toastController: ToastController) { }
 
-     
-
   ngOnInit() {
-    this.tabSelector = true;
-    
+    this.tabSelector = true; 
     this.storageService.getActualAthlete().then(res =>{
       this.actualAthlete = res;
       this.havICoach = res.coach;
@@ -68,8 +62,6 @@ export class CoachProfilePage implements OnInit {
         this.payDay = res.payDay
         this.today = (new Date().getUTCDate() + "-" + (new Date().getUTCMonth()+1));
       })
-
-      
       this.storageService.getActualUID().then(res =>{
         this.actualUID = res;
         this.chatService.getChats().subscribe(res =>{
@@ -116,9 +108,7 @@ export class CoachProfilePage implements OnInit {
         }else{
           count ++;
         }
-        
       } 
-      
     }
     if (count == this.chats.length){
       this.createChat(); 
@@ -140,7 +130,6 @@ export class CoachProfilePage implements OnInit {
 
 
   public createChat(){
-
     let chat: Chat = {
       idn: '',
       users : [this.actualCoach.uid, this.actualUID],
@@ -163,17 +152,13 @@ export class CoachProfilePage implements OnInit {
             title:'Tienes nuevos mensajes',
             expanded: false
           }
-        
           this.notsService.addNotifycation(notification);      
         }
       }
-      
-    });
-    
+    });  
   }
 
   async payFee(){
-
     let actualFeePrice;
     let actuaFeeName;
     for(let f of this.feesIt){
@@ -193,7 +178,6 @@ export class CoachProfilePage implements OnInit {
       }
     });
     modal.present();
-
   }
 
 
@@ -207,19 +191,15 @@ export class CoachProfilePage implements OnInit {
     if(link == 3 && this.actualCInstagram != ""){
       window.open(this.actualCLinkedin)
     }
-
-
   }
 
-
-  cancelPlan(){
-    
+  cancelPlan(){  
     let notification: Notifycation = {
       receiver: this.actualCoach.uid,
       message:  this.actualAthlete.name + ' ' + this.actualAthlete.lastName + ' ha cancelado sus suscripción a su plan ' + this.actualAthlete.planName,
       date: new Date(),
       red: false,
-      image: this.actualAthlete.avatar,
+      image: '../../../../assets/newuser.png',
       title: 'Miebro desuscrito',
       expanded: false
     }
@@ -239,22 +219,15 @@ export class CoachProfilePage implements OnInit {
             this.coachService.updateCoach(this.actualCoach, this.actualCoach.idd).then(()=>{
               this.actualAthlete.planName = "";
               this.actualAthlete.coach = "";
-              
               this.athleteService.updateAthlete(this.actualAthlete, this.actualAthlete.idd).then(()=>{
                 this.storageService.updateActualAthlete(this.actualAthlete);
                 this.showToast('Plan Cancelado, desuscripción completada');
               })
-            })
-              
-          }
-            
-          
-        }
-        
+            })   
+          } 
+        }   
       }
-    }
-    
-    
+    } 
   }
 
   async showToast(msg){
@@ -263,8 +236,5 @@ export class CoachProfilePage implements OnInit {
       duration: 3000
     });
     toast.present();
-  }
-
-
-  
+  }  
 }

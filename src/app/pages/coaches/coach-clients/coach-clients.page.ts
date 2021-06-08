@@ -16,7 +16,6 @@ export class CoachClientsPage implements OnInit {
   clients: Athlete[] = []
   actualCoach: Coach;
   plans=[]
-
   actualAthlete: Athlete;
 
   constructor(private athleteService: AthleteService, private storageService: StorageService,
@@ -34,13 +33,9 @@ export class CoachClientsPage implements OnInit {
               console.log(this.athletes)
             })
           }
-
         }
       })
-      
     })
-
-    
   }
 
   async alertDeleteClient(plan, cli){
@@ -58,52 +53,34 @@ export class CoachClientsPage implements OnInit {
             }, {
                 text: 'Ok',
                 handler: () => {
-
                   this.deleteClient(plan, cli);
                 }
             }
         ]
     });
-
     await alert.present();
-
   }
 
   deleteClient(plan, cli){
     let index = -1;
     for(let p of this.actualCoach.fees){
-      
       index++;
       if(plan.name == p.name){
         let members = this.actualCoach.fees[index].members.splice(1);
         this.actualCoach.fees[index].members = members
-
         for(let a of this.athletes){
           if(a.uid == cli){
             this.actualAthlete = a;
             this.actualAthlete.planName = "";
             this.actualAthlete.coach = "";
           }
-
         }
-
-        
           this.coachService.updateCoach(this.actualCoach, this.actualCoach.idd).then(()=>{
             this.athleteService.updateAthlete(this.actualAthlete, this.actualAthlete.idd).then(()=>{
               this.storageService.updateActualCoach(this.actualCoach)
             })
-            
           })
-      
-        
-
       }
     }
-
-
-
   }
-  
-  
-
 }

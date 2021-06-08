@@ -10,7 +10,7 @@
         <ng-container *ngIf="user != actualUID">
           <ng-container *ngFor="let cch of coaches">
             <ng-container *ngIf="cch.uid == user">
-              <ion-item button router [routerLink]="['/chat', chat.id, cch.name + ' ' + cch.lastName, cch.avatar]" (click)="refresh()">
+              <ion-item button router [routerLink]="['/chat', chat.id, cch.name + ' ' + cch.lastName, cch.avatar]">
                 <ion-avatar ion-start>
                   <img src="{{cch.avatar}}">
                 </ion-avatar>

@@ -9,18 +9,14 @@ import { CoachService, Coach } from 'src/app/services/coaches/coach.service';
 import { Fee } from 'src/app/services/coaches/fee.service';
 import { AthleteService, Athlete } from 'src/app/services/athletes/athlete.service';
 import { StorageService } from 'src/app/services/common/storage.service';
-import {Message, Chat, ChatService} from '../../../services/common/chat.service';
-import {FoodService, Diet, Day} from '../../../services/common/food.service';
-import {ExerciseService, Routine, Day2, Exercise} from '../../../services/common/exercise.service';
+import { Diet, Day} from '../../../services/common/food.service';
+import {Routine, Day2, Exercise} from '../../../services/common/exercise.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import {Notifycation, NotifycationsService} from '../../../services/common/notifycations.service';
 import {ToastController} from '@ionic/angular'
-
-
-
 
 @Component({
   selector: 'app-profile-maker',
@@ -33,7 +29,6 @@ export class ProfileMakerPage implements OnInit {
 
   @ViewChild('myButton') myButton
 
-  
   user : User = {
     name: '',
     mail: '',
@@ -42,12 +37,9 @@ export class ProfileMakerPage implements OnInit {
   }
 
   notImage: string;
-
   rol: string = null;
-
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
-
 
   actualCoach: Coach;
   actualAthlete: Athlete;
@@ -216,15 +208,11 @@ export class ProfileMakerPage implements OnInit {
   }
 
   changeTab(int){
-    this.tabSelector = int;
-    
+    this.tabSelector = int; 
   }
 
   changeRol(rol){
-    
-    this.rol = rol;
-    
-    
+    this.rol = rol;  
   }
 
   onLoad(e){
@@ -238,7 +226,6 @@ export class ProfileMakerPage implements OnInit {
      this.urlImage = ref.getDownloadURL()
 
      )).subscribe(()=>{
-       //this.updateAvatar(this.urlImage);
         const filePath = `avatars/${this.user.uid}`
         const ref = firebase.storage().ref(filePath).getDownloadURL().then(res=>{
         this.avatar = res;
@@ -250,19 +237,15 @@ export class ProfileMakerPage implements OnInit {
   }
 
   finalize(){
-
     if (this.name == null || this.lastName ==null  || this.lastName =="" || this.name == ""){
       this.showToast('Faltan datos por introducir')
-
     }else{
       this.user.rol = this.rol;
       this.user.name = this.name + ' ' + this.lastName
       this.userService.createUser(this.user)
       this.storageService.addActualUser(this.user)
       if(this.rol == 'athlete'){
-  
         this.createAthlete()
-        
       }else{
         this.createCoach()
       }
@@ -324,7 +307,7 @@ export class ProfileMakerPage implements OnInit {
                         message: 'Echa un vistazo a la app y comienza por configurar tu perfil',
                         date: new Date(),
                         red: false,
-                        image: '../../../../assets/logo.png',
+                        image: '../../../../assets/logo2.png',
                         title: 'Bienvenido a FitnessMate',
                         expanded: false,
                       }
@@ -379,7 +362,7 @@ export class ProfileMakerPage implements OnInit {
                         message: 'Echa un vistazo a la app y comienza por configurar tu perfil',
                         date: new Date(),
                         red: false,
-                        image: '../../../../assets/logo.png',
+                        image: '../../../../assets/logo2.png',
                         title: 'Bienvenido a FitnessMate',
                         expanded: false,
                       }

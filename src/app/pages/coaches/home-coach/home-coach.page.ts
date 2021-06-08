@@ -29,7 +29,6 @@ export class HomeCoachPage implements OnInit {
   player: Howl = null;
 
   us: User = <User>{};
- 
   nots = [];
   notsL = 0;
   notifycations = [];
@@ -40,14 +39,11 @@ export class HomeCoachPage implements OnInit {
      private toastController: ToastController, private notifycationsService: NotifycationsService, private alertCtrl: AlertController) { }
 
      ngOnInit() {
-
-
       let arr = [];
       this.nots.splice(this.nots.length)
       this.storageService.getActualUID().then(res =>{
         this.uid = res;
         this.notifycationsService.getNotifycations().subscribe(res =>{
-          
           let c = -1;
           arr = []
           this.nots.splice(this.nots.length)
@@ -121,11 +117,6 @@ export class HomeCoachPage implements OnInit {
     });
     toast.present();
   }
-
-  expand(not){
-    not.expanded = !not.expanded;
-  }
-
   deleteNot(not){
     this.notifycationsService.deleteNotifycation(not)
     this.nots = []

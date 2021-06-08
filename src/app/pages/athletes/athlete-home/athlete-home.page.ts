@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
 import { Notifycation, NotifycationsService } from  "../../../services/common/notifycations.service";
 import { Howl } from 'howler'
 
-
-
 export interface Track{
   name: string;
   path: string;
@@ -40,16 +38,11 @@ export class AthleteHomePage implements OnInit {
   activeTrack: Track = null;
   player: Howl = null;
     
-  
-
-
-
   constructor(private authService: AuthService, private storageService: StorageService,
      private toastController: ToastController, private router: Router, 
      private notifycationsService: NotifycationsService, private alertCtrl: AlertController) { }
 
-  ngOnInit() {
-    
+  ngOnInit() {  
     let arr = [];
     this.storageService.getActualUID().then(res =>{
       this.uid = res;
@@ -77,14 +70,14 @@ export class AthleteHomePage implements OnInit {
           this.notsLength = res.length
           let lN2 = this.notsL
           if(lN2 > lN){
-            this.alertin();
+            this.alertNot();
           } 
         })  
     })
     
   }
 
-  async alertin(){
+  async alertNot(){
     const alert = await this.alertCtrl.create({
       header: 'Aviso',
       message: 'Tienes una nueva notificación en el tablero',
@@ -99,15 +92,9 @@ export class AthleteHomePage implements OnInit {
 
       },
       onend: () =>{
-
       }
     })
     this.player.play();
-
-  }
-
-  aparecer(){
-    this.ap = !this.ap
   }
 
   logout(){
@@ -133,14 +120,7 @@ export class AthleteHomePage implements OnInit {
     toast.present();
   }
 
-  expand(not){
-    not.expanded = !not.expanded;
-    //tis.notifycationsService.updateNotifycation(not, not.id)
-
-  }
-
   deleteNot(not){
-    console.log('hol')
     this.notifycationsService.deleteNotifycation(not)
     this.nots = []
   }

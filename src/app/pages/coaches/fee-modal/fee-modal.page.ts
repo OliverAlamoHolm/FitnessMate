@@ -28,7 +28,6 @@ export class FeeModalPage implements OnInit {
   description: string;
   coachId: string;
   index: number;
-
   athletes = [];
   athlete : Athlete;
 
@@ -58,7 +57,6 @@ export class FeeModalPage implements OnInit {
   }
 
   updateFee(){
-
     let arrr = [];
     for(let f of this.fees){
       arrr.push(f.name)
@@ -69,7 +67,6 @@ export class FeeModalPage implements OnInit {
     this.f.description = this.description;
     this.f.members = this.members;
     this.coach.fees[this.index]=this.f;
-
     let sem = true;
     for(let ar of arrr){
       if(ar == this.f.name){
@@ -95,9 +92,6 @@ export class FeeModalPage implements OnInit {
         this.modalController.dismiss()
       })
     }
-
-    
-    
   }
 
   getAthlete(uid){

@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {Router} from '@angular/router';
 import {StorageService} from '../../../services/common/storage.service';
-import {ExerciseService, Day2, Routine, Exercise} from '../../../services/common/exercise.service';
 import {AthleteService, Athlete} from '../../../services/athletes/athlete.service';
-import {FoodService} from '../../../services/common/food.service';
 import { Chart } from 'chart.js';
 import { IonSlides } from '@ionic/angular';
 import {MacrosModalPage} from '../../common/macros-modal/macros-modal.page';
@@ -18,7 +16,6 @@ export class DietPage implements OnInit {
 
   diet2 : any;
   slide: IonSlides;
-
   aths= [];
 
   constructor(private router: Router, private storageService: StorageService, 
@@ -26,7 +23,6 @@ export class DietPage implements OnInit {
 
   ngOnInit() {
     this.storageService.getActualAthlete().then(res =>{
-
       this.athService.getAthletes().subscribe(res2 =>{
         for(let a of res2){
           if(a.idd == res.idd){
@@ -109,13 +105,11 @@ export class DietPage implements OnInit {
   }
 
   async openMacrosModal(plan){
-
     let modal = await this.modalCtrl.create({
       component: MacrosModalPage,
       cssClass: 'macros-modal',
       componentProps: {
         plan: plan
-        
       }
     });
     modal.present();

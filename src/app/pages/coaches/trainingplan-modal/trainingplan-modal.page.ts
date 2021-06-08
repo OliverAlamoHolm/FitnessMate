@@ -3,7 +3,6 @@ import {NavParams, ModalController} from '@ionic/angular';
 import {ExerciseService, Day2, Routine, Exercise} from '../../../services/common/exercise.service';
 import {Athlete, AthleteService} from '../../../services/athletes/athlete.service';
 import {ToastController} from '@ionic/angular'
-import { Coach } from 'src/app/services/coaches/coach.service';
 import {Notifycation, NotifycationsService} from '../../../services/common/notifycations.service';
 
 @Component({
@@ -33,7 +32,6 @@ export class TrainingplanModalPage implements OnInit {
     notes: '',
   }
   
-
   day: Day2 = {
     name: '',
     number: 0,
@@ -57,7 +55,6 @@ export class TrainingplanModalPage implements OnInit {
     this.dia = this.navParams.get('day');
     this.avatar = this.navParams.get('avatar');
     this.exes = this.exerciseService.getExercises();
-
     this.athleteService.getAthletes().subscribe(res =>{
       this.athletes = res;
       for(let athlete of this.athletes){
@@ -74,14 +71,11 @@ export class TrainingplanModalPage implements OnInit {
     this.exercise.name = this.exerciseName;
     this.exercise.reps = this.exerciseReps;
     this.exercise.series = this.exerciseSeries;
-
     if(this.note == null){
       this.exercise.notes = '';
     }else{
       this.exercise.notes = this.note;
     }
-
-    
     this.day.plan.push(this.exercise);
     if (this.day.muscles.includes(this.categor)==false){
       this.day.muscles += this.categor + '-'; 
@@ -123,11 +117,8 @@ export class TrainingplanModalPage implements OnInit {
       expanded:false,
       title: 'Actualización en rutina' 
     }
-  
     this.notsService.addNotifycation(notification);
-
     this.modalController.dismiss()
-
   }
 
   async showToast(msg){
@@ -136,8 +127,5 @@ export class TrainingplanModalPage implements OnInit {
       duration: 2000
     });
     toast.present();
-  }
-
-  reorderItem(ev){
   }
 }

@@ -25,5 +25,6 @@ export class AppComponent {
       //this.statusBar.hide();
       this.statusBar.backgroundColorByName("black");
     });
+    
   }
 }

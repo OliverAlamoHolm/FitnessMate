@@ -128,14 +128,9 @@ export class LoginPage implements OnInit {
           }
         }
       }
-      //setTimeout(() =>this.router.navigateByUrl('profile-maker'), 4000);
       if (this.rol == "" || this.rol == null){
         this.router.navigateByUrl('profile-maker')
-
       }
-      
-      
-      
     });
   }
   

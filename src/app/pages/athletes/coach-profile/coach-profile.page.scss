@@ -2,13 +2,12 @@ ion-content{
    --background:linear-gradient( rgb(250, 250, 250) 1.48%, rgb(255, 255, 255) 12.52%, rgb(253, 253, 253) 95.52%);
 }
 
-
 ion-back-button{
-   
    position:absolute;
    top:1%;
    left:5%;
 }
+
 body{
    font-family: Montserrat, sans-serif;
    --ion-background-color: #fff;
@@ -21,11 +20,11 @@ body{
    border-radius: 5px;
    width: 100%;
    text-align: center;
-
 }
 
 .cover-photo{
    background: url('../../../../assets/training.jpg');
+   object-fit: cover;
    height: 160px;
    width: 100%;
    border-radius: 5px 5px 0px 0px;
@@ -52,9 +51,6 @@ body{
    line-height: 21px;
 }
 
-
-
-
 .container ion-icon{
    padding-left: 20px;
    padding: 5%;
@@ -75,5 +71,4 @@ ion-item{
 
 .payButton{
    margin-left: 45%;
-   
 }

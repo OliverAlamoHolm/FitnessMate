@@ -5,7 +5,7 @@ import { Coach } from 'src/app/services/coaches/coach.service';
 import { Athlete, AthleteService } from 'src/app/services/athletes/athlete.service';
 import { Router } from '@angular/router';
 import {Fee} from '../../../services/coaches/fee.service';
-import {ToastController} from '@ionic/angular'
+import {Platform, ToastController} from '@ionic/angular'
 import {FeeModalPage} from '../fee-modal/fee-modal.page'
 import {Notifycation, NotifycationsService} from '../../../services/common/notifycations.service';
 import {AngularFireStorage} from '@angular/fire/storage';
@@ -13,7 +13,6 @@ import {finalize} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import {AlertController, ModalController} from '@ionic/angular';
-
 
 
 @Component({
@@ -30,7 +29,6 @@ export class CoachProfilePage implements OnInit {
   actualId: string;
   uid: string;
   avatar: string;
-
   instagram: string = "";
   facebook: string = "";
   linkedin: string = ""
@@ -40,11 +38,9 @@ export class CoachProfilePage implements OnInit {
   fees: Fee[];
   coaches: Coach[] = [];
   clientId: string;
-
   athletes = [];
   athlete : Athlete;
   tabSelector: number;
-
 
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
@@ -56,6 +52,7 @@ export class CoachProfilePage implements OnInit {
 
   ngOnInit() {
     this.tabSelector = 1;
+    
     this.storageService.getActualCoach().then(co =>{
       this.actualName= co.name;
       this.actualLastName = co.lastName
@@ -183,10 +180,7 @@ export class CoachProfilePage implements OnInit {
       this.coachService.updateCoach(this.actualCoach, this.actualId).then(()=>{
         this.storageService.updateActualCoach(this.actualCoach);
       });
-    }
-    
-      
-    
+    } 
   }
 
   async openFee(fee, index){

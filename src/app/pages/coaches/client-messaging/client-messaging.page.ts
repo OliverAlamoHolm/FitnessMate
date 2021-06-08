@@ -80,12 +80,10 @@ export class ClientMessagingPage implements OnInit {
             this.chatID = cht.id;
             this.messages = cht.messages; 
             this.messageText = '';  
- 
           }
         }
       }); 
     }
     this.messageText = ''; 
   }
-
 }

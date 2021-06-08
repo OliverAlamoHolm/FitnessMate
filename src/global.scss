@@ -41,13 +41,14 @@
   }
 
   .trainingplan-modal{
-    --height: 70%;
+    --height: 80%;
     --border-radius: 10px;
     padding: 25px;
   }
 
   .dietplan-modal{
-    --height: 50%;
+    --height: 90%;
+    --width: 100%;
     --border-radius: 10px;
     padding: 25px;
   }
@@ -74,7 +75,7 @@
   }
 
   .progress-modal{
-    --height: 95%;
+    --height: 90%;
     --width: 100%;
     --border-radius: 10px;
     padding: 25px;
@@ -90,7 +91,7 @@
   }
 
   .payment-modal{
-    --height: 50%;
+    --height: 80%;
     --width: 100%;
     --border-radius: 10px;
     padding: 25px;
@@ -107,15 +108,15 @@
     //--background: #A72140;
     --background-size:auto;
     --text-align:center;
-    max-width: 700px;
+    //max-width: 700px;
 }
 ion-header{
-  max-width: 700px;
+  //max-width: 700px;
 
 }
 
 ion-footer{
-  max-width: 700px;
+  //max-width: 700px;
 }
 ion-tabs{
   max-width: 700px;

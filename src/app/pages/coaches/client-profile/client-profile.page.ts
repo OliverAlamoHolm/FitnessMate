@@ -50,10 +50,6 @@ export class ClientProfilePage implements OnInit {
   progress = [];
   text: string = '';
   showTextArea = false;
-
-
-  
-
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
   filePath: string;
@@ -63,12 +59,8 @@ export class ClientProfilePage implements OnInit {
     spaceBetween: 10,
     centeredSlides: true,
     slidesPerView: 1.6,
-    
-    
   }
   
-
-
   constructor(private route: ActivatedRoute, private storageService: StorageService, 
     private modalCtrl: ModalController, private athleteService: AthleteService,
     private chatService: ChatService, private router: Router, private notsService: NotifycationsService,
@@ -81,11 +73,9 @@ export class ClientProfilePage implements OnInit {
     this.athleteService.getAthletes().subscribe(res =>{
       this.clients = res;
       for(let client of this.clients){
-    
         if(client.uid==this.aUID){
           this.athleteID = client.id;
           this.athleteUID = client.uid;
-          
           if (client.exerciseRoutine == null){
             this.routine == null;
           }else{
@@ -111,16 +101,13 @@ export class ClientProfilePage implements OnInit {
       })
     })
 
-   
   }
   
   changeTab(int){
-    this.tabSelector = int;
-    
+    this.tabSelector = int;    
   }
 
   async openPlan(dia){
-
     let modal = await this.modalCtrl.create({
       component: TrainingplanModalPage,
       cssClass: 'trainingplan-modal',
@@ -136,7 +123,7 @@ export class ClientProfilePage implements OnInit {
   async openDiet(dia){
     let modal = await this.modalCtrl.create({
       component: DietplanModalPage,
-      cssClass: 'dietgplan-modal',
+      cssClass: 'dietplan-modal',
       componentProps: {
         client: this.athlete,
         day: dia,
@@ -145,7 +132,6 @@ export class ClientProfilePage implements OnInit {
     });
     modal.present();
   }
-
 
   goToMessaging(){
     let count = 0;
@@ -157,8 +143,7 @@ export class ClientProfilePage implements OnInit {
           break; 
         }else{
           count ++;
-        }
-        
+        } 
       }  
     }
     if (count == this.chats.length){
@@ -167,7 +152,6 @@ export class ClientProfilePage implements OnInit {
   }
 
   public createChat(){
-
     let chat: Chat = {
       idn: '',
       users : [this.aUID, this.actualUID],
@@ -190,42 +174,33 @@ export class ClientProfilePage implements OnInit {
             title:'Tienes nuevos mensajes',
             expanded: false
           }
-          
-        
-   
         }
       }
       
     });
   }
 
-  
   async openNoteModal(notes){
     let modal = await this.modalCtrl.create({
       component: NotesModalPage,
       cssClass: 'notes-modal',
       componentProps: {
         note: notes
-        
       }
     });
     modal.present();
   }
 
   async openMacrosModal(plan){
-
     let modal = await this.modalCtrl.create({
       component: MacrosModalPage,
       cssClass: 'macros-modal',
       componentProps: {
         plan: plan
-        
       }
     });
     modal.present();
   }
-
-
 
   deleteProgress(p){
     this.filePath = p.fileName[0]
@@ -239,10 +214,6 @@ export class ClientProfilePage implements OnInit {
     this.athleteService.updateAthlete(this.athlete, this.athleteID);
   }
 
-  
-
-  
-
   async openM(){
     let modal = await this.modalCtrl.create({
       component: ProgressModalPage,
@@ -253,7 +224,6 @@ export class ClientProfilePage implements OnInit {
       }
     });
     modal.present();
-
   }
 
   async openImageModal(image){

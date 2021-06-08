@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {AthleteService, Athlete, Progress} from '../../../services/athletes/athlete.service';
 import {NavParams, ModalController} from '@ionic/angular';
-import{TrainingplanModalPage} from '../trainingplan-modal/trainingplan-modal.page';
-import{DietplanModalPage} from '../dietplan-modal/dietplan-modal.page';
-import {NotesModalPage} from '../../common/notes-modal/notes-modal.page';
-import {MacrosModalPage} from '../../common/macros-modal/macros-modal.page';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -94,15 +90,11 @@ export class ProgressModalPage implements OnInit {
       })
     }
 
-
     addProgress(){
-    
       this.prog.text = this.text;
-      
       const filePath = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 1}`
       const filePath2 = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 2}`
       const filePath3 = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 3}`
-        //const ref = this.storage.ref(filePath).getDownloadURL();
         const ref = firebase.storage().ref(filePath).getDownloadURL().then(res=>{
           this.prog.image[0] = res;
           this.prog.fileName[0] = this.fileName;
@@ -143,7 +135,6 @@ export class ProgressModalPage implements OnInit {
       const id = Math.random().toString(36).substring(2);
       const file = e.target.files[0];
       this.globalDate = new Date().getDay() + "-" + new Date().getMonth() + "-" + new Date().getFullYear()
-
       this.prog.date = this.globalDate;
       this.filePath = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 1}`
       this.fileName = this.filePath;
@@ -158,11 +149,8 @@ export class ProgressModalPage implements OnInit {
     }
   
     onLoad2(e){
-      console.log(e.target.files[0])
       const id = Math.random().toString(36).substring(2);
       const file = e.target.files[0];
-  
-  
       this.filePath2 = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 2}`
       this.fileName2 = this.filePath2;
       const ref = this.storage.ref(this.filePath2);
@@ -170,15 +158,12 @@ export class ProgressModalPage implements OnInit {
       this.uploadPercent = task.percentageChanges();
       task.snapshotChanges().pipe(finalize (()=>
        this.urlImage2 = ref.getDownloadURL()
-  
        ))
-      
     }
   
     onLoad3(e){
       const id = Math.random().toString(36).substring(2);
       const file = e.target.files[0];
-  
       this.filePath3 = `progress/${this.aUID}/${this.aUID + this.prog.date + '_'+ 3}`
       this.fileName3 = this.filePath;
       const ref = this.storage.ref(this.filePath3);
@@ -186,9 +171,7 @@ export class ProgressModalPage implements OnInit {
       this.uploadPercent = task.percentageChanges();
       task.snapshotChanges().pipe(finalize (()=>
        this.urlImage3 = ref.getDownloadURL()
-  
        ))
-      
     }
 
 }

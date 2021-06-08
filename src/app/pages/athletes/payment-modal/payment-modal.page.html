@@ -1,10 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Pago de la suscripción '{{actualPlanName}}'</ion-title>
+    <ion-title>Pago de plan '{{actualPlanName}}'</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <br>
+<ion-content class="ion-padding">
   <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 </ion-content>

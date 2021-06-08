@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestoreModule, AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {Coach} from '../coaches/coach.service';
 import {Routine} from '../common/exercise.service'
 import {Diet} from '../common/food.service';
 
@@ -39,7 +38,6 @@ export class AthleteService {
   private athleteCollection: AngularFirestoreCollection<Athlete>;
   private athletes : Observable<Athlete[]>;
   private co = [];
-  private db2: AngularFirestore;
 
   constructor(db: AngularFirestore) {
     this.athleteCollection = db.collection<Athlete>('Athletes');

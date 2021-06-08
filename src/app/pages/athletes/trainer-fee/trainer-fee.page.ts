@@ -33,7 +33,6 @@ export class TrainerFeePage implements OnInit {
   ngOnInit() {
     this.fee = this.navParams.get('fee');
     this.coach = this.navParams.get('coach');
-    
     this.storageService.getActualAthlete().then(res=>{
       this.actualAthlete = res;
       this.planName = res.planName;
@@ -43,8 +42,7 @@ export class TrainerFeePage implements OnInit {
           this.coaches = res;
           for (let c of this.coaches){
             if(c.uid == this.coach.uid){
-              this.coachId = c.id;
-              
+              this.coachId = c.id; 
             }
           }
         })
@@ -58,8 +56,6 @@ export class TrainerFeePage implements OnInit {
     let day = new Date();
     let month = day.getMonth()+2
     this.actualAthlete.payDay = day.getDate()+"-"+month
-    
-    
     let fees : Fee[] = this.coach.fees;
     let count=-1
     for (let f of fees){ 
@@ -79,19 +75,15 @@ export class TrainerFeePage implements OnInit {
       message: 'Se ha suscrito ' + this.actualAthlete.name + ' ' + this.actualAthlete.lastName + ' a su plan ' + this.actualAthlete.planName,
       date: new Date(),
       red: false,
-      image: this.actualAthlete.avatar,
+      image: '../../../../assets/newuser.png',
       title: 'Nuevo miembro',
       expanded: false
-
     }
   
     this.notService.addNotifycation(notification);
     this.router.navigateByUrl('tabs/coachProfile').then(()=>{
       this.modal.dismiss();
-      
     })
-    
-
   }
 
   cancelPlan(fee){
@@ -117,27 +109,18 @@ export class TrainerFeePage implements OnInit {
               message:  this.actualAthlete.name + ' ' + this.actualAthlete.lastName + ' ha cancelado sus suscripción a su plan ' + this.actualAthlete.planName,
               date: new Date(),
               red: false,
-              image: this.actualAthlete.avatar,
+              image: '../../../../assets/newuser.png',
               title: 'Miebro desuscrito',
               expanded: false
             }
-          
             this.notService.addNotifycation(notification);
-            
             this.router.navigateByUrl('tabs/myCoach').then(()=>{
               this.modal.dismiss();
             })
-            
           })
-          
         })
       }
     }
-    
-
-    
-
-    
   }
 
   async showToast(msg){

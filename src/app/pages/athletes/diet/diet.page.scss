@@ -4,7 +4,7 @@ ion-card{
   width: 90% !important;
   margin: 10 !important;
   border-radius: 10px;
-  }
+}
 
   ion-back-button{
     color:white;
@@ -16,11 +16,12 @@ ion-card{
     font-size: 2.5em;
     color:black;
   }
-  ion-card-subtitle{
 
+  ion-card-subtitle{
     font-size: 1.5em;
     color:white;
   }
+
   ion-card-content {
     background-color: white;
     border-radius: 20px 20px 20px 20px;
@@ -44,7 +45,6 @@ ion-card{
     width:9%;
     height: 18px;
   }
-
 
   ion-content{
     --background:linear-gradient( rgba(255, 251, 251,0) 1.48%, rgba(0, 0, 0, 0) 12.52%, rgb(0, 0, 0) 95.52%) ,url('../../../../assets/diet.jpg');

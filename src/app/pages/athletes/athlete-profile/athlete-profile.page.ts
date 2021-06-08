@@ -32,24 +32,17 @@ export class AthleteProfilePage implements OnInit {
   avatar: string;
   athletes = [];
   actualId: string;
-
   progress = [];
-
   cloudFiles = []
-
   slideOpts = {
     spaceBetween: 10,
     centeredSlides: true,
     slidesPerView: 1,
-    
   }
-
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
-
   yudsegment: string = "cuenta";
   
-
   constructor(private storageService: StorageService, private athleteService: AthleteService, 
     private toastController: ToastController, private modalCtrl: ModalController,
     private storage: AngularFireStorage,  private router: Router) { }
@@ -66,39 +59,23 @@ export class AthleteProfilePage implements OnInit {
       this.progress = res.progress
       this.athleteService.getAthlete(this.actualId).subscribe(res =>{
         this.progress = res.progress
-        
-
       })
       this.actualUid = res.uid;
-     
       this.actualAthlete.avatar = res.avatar;
-  
       this.actualAthlete.progress = res.progress
-
       const filePath = `avatars/${this.actualUid}`
-      //const ref = this.storage.ref(filePath).getDownloadURL();
       const ref = firebase.storage().ref(filePath).getDownloadURL().then(res=>{
         this.avatar = res;
       })
-
     })
     this.storageService.getActualID().then(res=>{
       this.actualId = res;
       this.showChart();
     })
-
   }
 
   changeTab(int){
     this.tabSelector = int;
-    
-  }
-
-  ionViewWillEnter(){
-  }
-
-  giveTab(){
-    return this.tabSelector;
   }
 
   update(){
@@ -114,8 +91,6 @@ export class AthleteProfilePage implements OnInit {
     }else{
       this.showToast('Nombre demasiado corto.')
     }
-    
-    
   }
 
   updateBodyMeasurements(){
@@ -123,9 +98,7 @@ export class AthleteProfilePage implements OnInit {
   }
 
   updateName(){
-    
     this.actualAthlete.name = this.actualName;
-    
   }
 
   async updateAvatar(){
@@ -136,13 +109,10 @@ export class AthleteProfilePage implements OnInit {
       this.updateAthlete()
       
     })
-    
-
   }
 
   updateLastName(){
     this.actualAthlete.lastName = this.actualLastName
-
   }
 
   updateAthlete(){
@@ -150,8 +120,6 @@ export class AthleteProfilePage implements OnInit {
     this.athleteService.updateAthlete(this.actualAthlete, this.actualId);
     this.showToast('Datos actualizados correctamente')
   }
-
- 
 
   async showToast(msg){
     const toast = await this.toastController.create({
@@ -172,7 +140,6 @@ export class AthleteProfilePage implements OnInit {
   }
 
   onLoad(e){
-    console.log(e.target.files[0])
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
     const filePath = `avatars/${this.actualUid}`
@@ -181,17 +148,10 @@ export class AthleteProfilePage implements OnInit {
     this.uploadPercent = task.percentageChanges();
     task.snapshotChanges().pipe(finalize (()=>
      this.urlImage = ref.getDownloadURL()
-
      )).subscribe(()=>{
-       //this.updateAvatar(this.urlImage);
        this.updateAvatar();
      })
     
-  }
-
-  openCalculator(){
-    this.router.navigate(['/imc-calculator'])
-
   }
 
   async openImageModal(image){
@@ -206,7 +166,6 @@ export class AthleteProfilePage implements OnInit {
   }
 
   showChart() {
-    
     var length = this.progress.length;
     var date1 = this.progress[0].date;
     var date2 = this.progress[length-2].date;
@@ -214,8 +173,6 @@ export class AthleteProfilePage implements OnInit {
     var weight1 = this.progress[0].weight;
     var weight2 = this.progress[length-2].weight;
     var weight3 = this.progress[length-1].weight;
-
-    
     setTimeout(function(){
       var ctx = (<any>document.getElementById('yudhatp-chart'))
       var chart = new Chart(ctx, {
